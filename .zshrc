@@ -6,7 +6,10 @@ antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
 antigen bundle heroku
+antigen bundle brew
 antigen bundle pip
+antigen bundle pyenv
+antigen bundle darvid/zsh-poetry
 antigen bundle command-not-found
 antigen bundle history-substring-search
 
@@ -22,3 +25,4 @@ antigen theme dracula/zsh
 antigen apply
 
 source ~/.files/config.zsh
+source ~/.files/config.python.zsh
