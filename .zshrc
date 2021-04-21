@@ -21,4 +21,4 @@ antigen theme dracula/zsh
 
 antigen apply
 
-source ~/.file/config.zsh
+source ~/.files/config.zsh
