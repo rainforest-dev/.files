@@ -1,6 +1,6 @@
-# .file
+# .files
 ## Setup
 ```bash
-ln -s .file ~
-ln -s .file/.zshrc ~
+ln -s .files ~
+ln -s .files/.zshrc ~
 ```
