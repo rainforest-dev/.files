@@ -26,6 +26,7 @@ antigen apply
 
 source ~/.files/config.zsh
 source ~/.files/config.python.zsh
+source ~/.files/config.java.zsh
 
 # Created by `pipx` on 2021-04-28 13:15:39
 export PATH="$PATH:/Users/rainforest/.local/bin"
