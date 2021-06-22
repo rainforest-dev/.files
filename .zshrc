@@ -31,3 +31,8 @@ source $HOME/.files/config.go.zsh
 
 # Created by `pipx` on 2021-04-28 13:15:39
 export PATH="$PATH:/Users/rainforest/.local/bin"
+
+# Bind Key
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+

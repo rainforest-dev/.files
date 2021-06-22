@@ -1,13 +1,7 @@
 # pyenv
-export PYENV_ROOT="$(brew --prefix pyenv)"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-	eval "$(pyenv init -)"
-fi
+eval "$(pyenv init -)"
 # pyenv-virtualenv
-if which pyenv-virtualenv-init > /dev/null; then 
-	eval "$(pyenv virtualenv-init -)"
-fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 # protect your system python from
 # polution from 3rd-party packages
