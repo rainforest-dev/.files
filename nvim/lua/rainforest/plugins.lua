@@ -49,7 +49,9 @@ packer.startup(function()
 	-- LSP and completion
 	use 'neovim/nvim-lspconfig'
 	use 'kabouzeid/nvim-lspinstall'
-	use 'nvim-lua/completion-nvim'
+	use 'hrsh7th/nvim-compe'
+	use 'hrsh7th/vim-vsnip'
+	use 'hrsh7th/vim-vsnip-integ'
 
 	-- flutter
 	use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
