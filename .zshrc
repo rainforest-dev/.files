@@ -25,12 +25,22 @@ antigen theme dracula/zsh
 antigen apply
 
 source $HOME/.files/config.zsh
+source $HOME/.files/config.functions.zsh
+source $HOME/.files/config.dependencies.zsh
 source $HOME/.files/config.python.zsh
 source $HOME/.files/config.java.zsh
 source $HOME/.files/config.go.zsh
 
 # Created by `pipx` on 2021-04-28 13:15:39
 export PATH="$PATH:/Users/rainforest/.local/bin"
+
+# pipx                                                                                                                                   
+autoload -U bashcompinit                                                        
+bashcompinit                                                                    
+eval "$(register-python-argcomplete pipx)"
+
+# Config where to link apps installed by Homebrew
+export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
 
 # Bind Key
 bindkey '^[[A' up-line-or-search

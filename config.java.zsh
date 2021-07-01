@@ -1,2 +1,3 @@
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+export PATH="$(brew --prefix java)/bin:$PATH"
+
+export CPPFLAGS="-I$(brew --prefix java)/include $CPPFLAGS"
