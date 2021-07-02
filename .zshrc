@@ -46,3 +46,5 @@ export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
 bindkey '^[[A' up-line-or-search
 bindkey '^[[B' down-line-or-search
 
+banner "  RAIN" -w 9999
+banner "    FOREST" -w 9999

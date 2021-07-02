@@ -1,3 +1,7 @@
+function banner {
+        figlet ${@:2} -f $HOME/.files/banner/3d.flf $1 | lolcat
+}
+
 function config_dependency {
         need_config_pkg=${2:-false}
         BASEDIR=$(brew --prefix $1)
