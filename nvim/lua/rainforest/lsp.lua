@@ -3,9 +3,29 @@ local vim = vim
 local lspconfig = require'lspconfig'
 local installer = require'lspinstall'
 local utils = require'rainforest.utils'
+local mappings = require'rainforest.mappings'
+
+local function on_attach(client)
+	mappings.setup_lsp_mappings()
+	print('Attaching to ' .. client.name)
+end
 
 local function make_config()
-	return {}
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities.textDocument.completion.completionItem.snippetSupport = true
+	capabilities.textDocument.completion.completionItem.resolveSupport = {
+		properties = {
+			'documentation',
+			'detail',
+			'additionalTextEdits',
+		}
+	}
+	return {
+		-- enable snippet support
+		capabilities = capabilities,
+		-- attach the language server
+		on_attach = on_attach,
+	}
 end
 
 -- setup language servers here
