@@ -14,6 +14,19 @@ local setup_mappings = function()
 	----flutter-tools.nvim
 	utils.key_mapper('n', '<F5>', ':lua require"telescope".extensions.flutter.commands()<CR>')
 
+	-- Nerdtree
+	utils.key_mapper('n', '<leader>ne', ':NERDTreeToggle<CR>')
+	
+	utils.key_mapper('', '<leader><Right>', '$')
+	utils.key_mapper('', '<leader><Left>', '^')
+	utils.key_mapper('', '<leader><Up>', 'H')
+	utils.key_mapper('', '<leader><Down>', 'L')
+	
+end
+
+G = {}
+
+G.setup_lsp_mappings = function()
 	-- LSP
 	utils.key_mapper('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
 	utils.key_mapper('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>')
@@ -34,14 +47,8 @@ local setup_mappings = function()
 	utils.key_mapper('i', '<s-tab>', 'v:lua.s_tab_complete()', {expr = true})
 	utils.key_mapper('s', '<s-tab>', 'v:lua.s_tab_complete()', {expr = true})
 
-	-- Nerdtree
-	utils.key_mapper('n', '<leader>ne', ':NERDTreeToggle<CR>')
-	
-	utils.key_mapper('', '<leader><Right>', '$')
-	utils.key_mapper('', '<leader><Left>', '^')
-	utils.key_mapper('', '<leader><Up>', 'H')
-	utils.key_mapper('', '<leader><Down>', 'L')
-	
 end
 
 setup_mappings()
+
+return G
