@@ -1,5 +1,8 @@
+export PYENV_ROOT="$(brew --prefix pyenv)"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
 # pyenv
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 # pyenv-virtualenv
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
