@@ -29,7 +29,7 @@ export LDFLAGS=""
 export CPPFLAGS=""
 
 source $HOME/.files/config.zsh
-source $HOME/.files/config.homebrew.zsh
+source $HOME/.files/config.homebrew.zsh $ARCH
 source $HOME/.files/config.functions.zsh
 source $HOME/.files/config.dependencies.zsh
 source $HOME/.files/config.python.zsh
