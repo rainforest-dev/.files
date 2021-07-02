@@ -16,3 +16,6 @@ export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 config_dependency icu4c
+
+# openblas
+config_dependency openblas true
