@@ -1,3 +1,5 @@
+eval "$($(brew --prefix)/bin/brew shellenv)"
+
 # Homebrew Shell Completion
 FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
