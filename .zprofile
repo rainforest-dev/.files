@@ -1,4 +1,8 @@
-eval "$($(brew --prefix)/bin/brew shellenv)"
+# setup arm64 version homebrew 
+ARCH=$(uname -m)
+if [[ $ARCH = "arm64" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # Homebrew Shell Completion
 FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
