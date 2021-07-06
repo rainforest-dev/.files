@@ -1,4 +1,4 @@
-export PYENV_ROOT="$(brew --prefix pyenv)"
+export PYENV_ROOT=$HOME/.pyenv
 export PATH="$PYENV_ROOT/bin:$PATH"
 
 # pyenv
