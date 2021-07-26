@@ -26,7 +26,7 @@ end
 
 G = {}
 
-G.setup_lsp_mappings = function()
+G.setup_lsp_mappings = function(client, bufnr)
 	-- LSP
 	utils.key_mapper('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
 	utils.key_mapper('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>')
@@ -47,6 +47,12 @@ G.setup_lsp_mappings = function()
 	utils.key_mapper('i', '<s-tab>', 'v:lua.s_tab_complete()', {expr = true})
 	utils.key_mapper('s', '<s-tab>', 'v:lua.s_tab_complete()', {expr = true})
 
+	-- Set some keybinds conditional on server capabilities
+	if client.resolved_capabilities.document_formatting then
+		utils.key_mapper('n', 'ff', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+	elseif client.resolved_capabilities.document_range_formatting then
+		utils.key_mapper('n', 'ff', '<cmd>lua vim.lsp.buf_range_formatting()<CR>')
+	end
 end
 
 setup_mappings()

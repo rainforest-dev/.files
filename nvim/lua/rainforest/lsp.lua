@@ -6,7 +6,8 @@ local utils = require'rainforest.utils'
 local mappings = require'rainforest.mappings'
 
 local function on_attach(client)
-	mappings.setup_lsp_mappings()
+	mappings.setup_lsp_mappings(client)
+
 	print('Attaching to ' .. client.name)
 end
 
@@ -39,6 +40,8 @@ local function setup_servers()
 		-- language specific config
 		utils.switch(server, {
 			['lua'] = function ()
+			end,
+			['go'] = function ()
 			end
 		})
 		lspconfig[server].setup(config)
