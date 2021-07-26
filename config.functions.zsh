@@ -9,3 +9,7 @@ function config_dependency {
         export CPPFLAGS="-I$BASEDIR/include $CPPFLAGS"
         if $need_config_pkg ; then export PKG_CONFIG_PATH="$BASEDIR/lib/pkgconfig"; fi
 }
+
+function timestamp {
+        echo $(date +"%Y-%m-%d %T")
+}
