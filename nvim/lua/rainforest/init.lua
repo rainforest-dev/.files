@@ -1,6 +1,7 @@
 require'rainforest.plugins'
 require'rainforest.lsp'
 require'rainforest.completion'
+require'rainforest.formatter'
 require'rainforest.telescope'
 require'rainforest.treesitter'
 require'rainforest.git'
