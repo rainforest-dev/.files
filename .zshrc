@@ -25,6 +25,7 @@ antigen theme dracula/zsh
 antigen apply
 
 source $HOME/.files/config.zsh
+source $HOME/.files/config.functions.zsh
 if [ -f /etc/redhat-release ]; then
   source $HOME/.files/config.centos.zsh
 fi
