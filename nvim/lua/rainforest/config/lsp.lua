@@ -5,9 +5,9 @@ local installer = require'lspinstall'
 local utils = require'rainforest.utils'
 local mappings = require'rainforest.mappings'
 
-local function on_attach(client)
+local function on_attach(client, bufnr)
 	mappings.setup_lsp_mappings(client)
-
+	require 'illuminate'.on_attach(client)
 	print('Attaching to ' .. client.name)
 end
 
