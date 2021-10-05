@@ -1,6 +1,16 @@
+local utils = require 'rainforest.utils'
 local saga = require 'lspsaga'
-local which_key = require 'which-key'
+
 saga.init_lsp_saga({
+  finder_action_keys = {
+    quit = '<Esc>',
+  },
+  code_action_keys = {
+    quit = '<Esc>'
+  },
+  rename_action_keys = {
+    quit = '<Esc>'
+  },
   code_action_icon = " ",
   definition_preview_icon = "  ",
   dianostic_header_icon = "   ",
@@ -15,17 +25,41 @@ saga.init_lsp_saga({
 G = {}
 
 G.setup_mapping = function (client, bufnr)
-  which_key.register({
-    f = {':lua require "lspsaga.provider".lsp_finder()<CR>', 'Async Lsp Finder'},
-    a = {':lua require "lspsaga.codeaction".code_action()<CR>', 'Code Action'},
-    -- d = {':lua require "lspsaga.hover".render_hover_doc()<CR>', 'Hover Doc'},
-    d = {':lua require "lspsaga.provider".preview_definition()<CR>', 'Preview Definition'},
-    -- d = {':lua require "lspsaga.diagnostic".show_cursor_diagnostics()<CR>', 'Hover Doc'},
-    ['<Up>'] = {':lua require "lspsaga.action".smart_scroll_with_saga(-1)<CR>', 'Scroll Up'},
-    ['<Down>'] = {':lua require "lspsaga.action".smart_scroll_with_saga(1)<CR>', 'Scroll Down'},
-    s = {':lua require "lspsaga.signaturehelp".signature_help()<CR>', 'Signature Help'},
-    r = {':lua require "lspsaga.rename".rename()<CR>', 'Rename'},
-  }, {prefix = '<leader>l'})
+  utils.key_mapper{
+    key = '<leader>lf',
+    cmd = ':lua require "lspsaga.provider".lsp_finder()<CR>',
+    category = 'LSP',
+    unique_identifier = 'lspsaga_provider_lsp_finder',
+    description = 'lsp provider to find the cursor word definition and reference'
+  }
+  utils.key_mapper{
+    key = '<leader>la',
+    cmd = ':lua require "lspsaga.codeaction".code_action()<CR>',
+    category = 'LSP',
+    unique_identifier = 'lspsaga_codeaction_code_action',
+    description = 'code action'
+  }
+  utils.key_mapper{
+    key = '<leader>ld',
+    cmd = ':lua require "lspsaga.provider".preview_definition()<CR>',
+    category = 'LSP',
+    unique_identifier = 'lspsaga_provider_preview_definition',
+    description = 'Preview Definition'
+  }
+  utils.key_mapper{
+    key = '<leader>ls',
+    cmd = ':lua require "lspsaga.signaturehelp".signature_help()<CR>',
+    category = 'LSP',
+    unique_identifier = 'lspsaga_signaturehelp_signature_help',
+    description = 'show signature help'
+  }
+  utils.key_mapper{
+    key = '<leader>lr',
+    cmd = ':lua require "lspsaga.rename".rename()<CR>',
+    category = 'LSP',
+    unique_identifier = 'lspsaga_rename_rename',
+    description = 'Rename'
+  }
 end
 
 return G
