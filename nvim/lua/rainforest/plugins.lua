@@ -10,8 +10,6 @@ packer.startup(function()
 		'dracula/vim', as = 'dracula', 
 		config = 'vim.cmd([[colorscheme dracula]])'
 	}
-	-- icon pack
-	use 'ryanoasis/vim-devicons'
 	-- status bar
 	use {
   	'hoob3rt/lualine.nvim',
@@ -22,8 +20,6 @@ packer.startup(function()
 	}
 
 	-- utils
-	use 'preservim/nerdtree'
-	use 'tiagofumo/vim-nerdtree-syntax-highlight'
 	use 'jiangmiao/auto-pairs'
 	-- TODO: Refine key mapping
 	use 'folke/which-key.nvim'
@@ -35,6 +31,19 @@ packer.startup(function()
 		config = function ()
 			require 'rainforest.config.hop'
 		end
+	}
+
+	-- File Explorer
+	use {
+		'preservim/nerdtree',
+		config = function ()
+			require 'rainforest.config.nerdtree'
+		end,
+		requires = {
+			{'tiagofumo/vim-nerdtree-syntax-highlight'},
+			{'ryanoasis/vim-devicons'},
+			{'Xuyuanp/nerdtree-git-plugin'}
+		}
 	}
 
 	-- fuzzy finder
