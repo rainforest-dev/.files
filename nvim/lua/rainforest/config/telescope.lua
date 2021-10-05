@@ -38,6 +38,16 @@ telescope.setup({
 	}
 })
 
+require 'nvim-mapper'.setup({
+	no_map = false,
+	search_path = os.getenv('HOME') .. '/.config/nvim/lua',
+	-- what should be done with the selected keybind when pressing enter.
+	-- Available actions:
+	--   * "definition" - Go to keybind definition (default)
+	--   * "execute" - Execute the keybind command
+	action_on_enter = 'execute'
+})
+
 local M = {}
 
 M.find_files = function()
@@ -59,6 +69,7 @@ end
 -- extensions
 telescope.load_extension('fzf')
 telescope.load_extension('lsp_handlers')
+telescope.load_extension('mapper')
 --- flutter
 telescope.load_extension('flutter')
 
