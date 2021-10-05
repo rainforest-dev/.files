@@ -80,16 +80,6 @@ local setup_mappings = function()
 		unique_identifier = 'telescope_extensions_flutter_commands',
 		description = ''
 	}
-
-	-- Nerdtree
-	utils.key_mapper{
-		mode = 'n', 
-		key = '<leader>ne', 
-		cmd = ':NERDTreeToggle<CR>',
-		category = 'Nerdtree',
-		unique_identifier = 'nerdtree_toggle',
-		description = ''
-	}
 	
 	utils.key_mapper{
 		mode = '', 
@@ -124,6 +114,7 @@ local setup_mappings = function()
 		description = ''
 	}
 
+	require 'rainforest.config.nerdtree'.setup_mapping()
 	require 'rainforest.config.lspsaga'.setup_mapping()
 	require 'rainforest.config.hop'.setup_mapping()
 end
