@@ -35,6 +35,7 @@ source $HOME/.files/config.dependencies.zsh
 source $HOME/.files/config.python.zsh
 source $HOME/.files/config.java.zsh
 source $HOME/.files/config.go.zsh
+source $HOME/.files/config.k8s.zsh
 
 # Created by `pipx` on 2021-04-28 13:15:39
 export PATH="$PATH:/Users/rainforest/.local/bin"
