@@ -205,44 +205,6 @@ G.setup_lsp_mappings = function(client, bufnr)
 		unique_identifier = 'lsp_references',
 		description = ''
 	}
-	
-	-- [hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe#vim-script-confi)
-	utils.key_mapper{
-		mode = 'i', 
-		key = '<tab>', 
-		cmd = 'v:lua.tab_complete()', 
-		options = {expr = true},
-		category = 'Completion',
-		unique_identifier = 'completion_i_tab',
-		description = ''
-	}
-	utils.key_mapper{
-		mode = 's', 
-		key = '<tab>', 
-		cmd = 'v:lua.tab_complete()', 
-		options = {expr = true},
-		category = 'Completion',
-		unique_identifier = 'completion_s_tab',
-		description = ''
-	}
-	utils.key_mapper{
-		mode = 'i', 
-		key = '<s-tab>', 
-		cmd = 'v:lua.s_tab_complete()', 
-		options = {expr = true},
-		category = 'Completion',
-		unique_identifier = 'completion_i_stab',
-		description = ''
-	}
-	utils.key_mapper{
-		mode = 's', 
-		key = '<s-tab>', 
-		cmd = 'v:lua.s_tab_complete()', 
-		options = {expr = true},
-		category = 'Completion',
-		unique_identifier = 'completion_s_stab',
-		description = ''
-	}
 
 	-- Set some keybinds conditional on server capabilities
 	if client.resolved_capabilities.document_formatting then
