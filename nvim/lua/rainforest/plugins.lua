@@ -138,9 +138,12 @@ packer.startup(function()
 	
 	-- git
 	use {
-		'APZelos/blamer.nvim',
+		'lewis6991/gitsigns.nvim',
 		config = function ()
 			require 'rainforest.config.git'
-		end
+		end,
+		requires = {
+			'nvim-lua/plenary.nvim'
+		}
 	}
 end)
