@@ -46,6 +46,15 @@ packer.startup(function()
 		}
 	}
 
+	--- Dashboard
+	use {
+		'glepnir/dashboard-nvim',
+		config = function ()
+			require 'rainforest.config.dashboard'
+		end,
+		requires = {'nvim-telescope/telescope.nvim'}
+	}
+
 	-- fuzzy finder
 	use {
 		'nvim-telescope/telescope.nvim',
