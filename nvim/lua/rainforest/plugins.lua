@@ -36,6 +36,12 @@ packer.startup(function()
 			require 'rainforest.config.hop'
 		end
 	}
+	use {
+		'aserowy/tmux.nvim',
+		config = function ()
+			require 'rainforest.config.tmux'
+		end
+	}
 
 	-- File Explorer
 	use {
