@@ -8,7 +8,11 @@ packer.startup(function()
 	-- use 'whatyouhide/vim-gotham'
 	use {
 		'dracula/vim', as = 'dracula', 
-		config = 'vim.cmd([[colorscheme dracula]])'
+	}
+	use 'arcticicestudio/nord-vim'
+	use {
+		'tiagovla/tokyodark.nvim',
+		config = 'vim.cmd([[colorscheme tokyodark]])'
 	}
 	-- status bar
 	use {
