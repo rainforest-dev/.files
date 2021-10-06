@@ -12,11 +12,11 @@ packer.startup(function()
 	}
 	-- status bar
 	use {
-  	'hoob3rt/lualine.nvim',
+		'hoob3rt/lualine.nvim',
 		config = function ()
 			require 'rainforest.config.statusbar'
 		end,
-  	requires = {'kyazdani42/nvim-web-devicons', opt = true}
+		requires = {'ryanoasis/vim-devicons', opt = true}
 	}
 
 	-- utils
@@ -56,7 +56,7 @@ packer.startup(function()
 			{'nvim-lua/popup.nvim'},
 			{'nvim-lua/plenary.nvim'},
 			{'gbrlsnchs/telescope-lsp-handlers.nvim'},
-			{'kyazdani42/nvim-web-devicons'}
+			{'ryanoasis/vim-devicons'}
 		}
 	}
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
