@@ -8,7 +8,7 @@ local setup_mapping = function()
 	require 'rainforest.config.tmux'.setup_mapping()
 	require 'rainforest.config.comment'.setup_mapping()
 	require 'rainforest.config.neoscroll'.setup_mapping()
-	require 'rainforest.config.nerdtree'.setup_mapping()
+	require 'rainforest.config.nvim-tree'.setup_mapping()
 	require 'rainforest.config.lspsaga'.setup_mapping()
 	
 	-- Telescope
