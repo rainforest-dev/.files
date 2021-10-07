@@ -104,7 +104,7 @@ packer.startup(function()
 	-- LSP and completion
 	use {
 		'neovim/nvim-lspconfig',
-		event = 'BufReadPre',
+		-- event = 'BufReadPre',
 		config = function ()
 			require 'rainforest.config.lsp'
 		end,
@@ -135,13 +135,12 @@ packer.startup(function()
 		end
 	}
 
-
-	-- code formatting
 	use {
-		'sbdchd/neoformat',
+		'jose-elias-alvarez/null-ls.nvim',
 		config = function ()
-			require 'rainforest.config.formatter'
-		end
+			require 'rainforest.config.null-ls'
+		end,
+		requires = {'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig'}
 	}
 
 	-- flutter
