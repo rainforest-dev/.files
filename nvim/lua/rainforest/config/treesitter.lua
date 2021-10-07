@@ -20,7 +20,9 @@ configs.setup {
 	},
 }
 
+-- disable folding by default
 api.nvim_exec([[
+	set nofoldenable
 	set foldmethod=expr
 	set foldexpr=nvim_treesitter#foldexpr()
 ]], true)
