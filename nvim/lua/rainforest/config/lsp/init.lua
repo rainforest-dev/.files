@@ -1,14 +1,13 @@
 local vim = vim
 
-local lspconfig = require'lspconfig'
-local installer = require'lspinstall'
-local utils = require'rainforest.utils'
-local mappings = require'rainforest.mappings'
+local lspconfig = require("lspconfig")
+local installer = require("lspinstall")
+local utils = require("rainforest.utils")
 
 local function on_attach(client, bufnr)
-	mappings.setup_lsp_mappings(client)
-	require 'illuminate'.on_attach(client)
-	print('Attaching to ' .. client.name)
+	require("rainforest.config.lsp.mapping").setup_mapping(client, bufnr)
+	require("illuminate").on_attach(client)
+	print("Attaching to " .. client.name)
 end
 
 local function make_config()
@@ -16,10 +15,10 @@ local function make_config()
 	capabilities.textDocument.completion.completionItem.snippetSupport = true
 	capabilities.textDocument.completion.completionItem.resolveSupport = {
 		properties = {
-			'documentation',
-			'detail',
-			'additionalTextEdits',
-		}
+			"documentation",
+			"detail",
+			"additionalTextEdits",
+		},
 	}
 	return {
 		-- enable snippet support
@@ -39,22 +38,20 @@ local function setup_servers()
 		local config = make_config()
 		-- language specific config
 		utils.switch(server, {
-			['lua'] = function ()
-			end,
-			['go'] = function ()
-			end
+			["lua"] = function() end,
+			["go"] = function() end,
 		})
 		lspconfig[server].setup(config)
 	end
 
 	-- flutter
-	require'flutter-tools'.setup{}
+	require("flutter-tools").setup({})
 end
 
 setup_servers()
 
 --- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim
-installer.post_install_hook = function ()
+installer.post_install_hook = function()
 	setup_servers() -- reload installed servers
-	vim.cmd('bufdo e') -- this triggers the FileType autocmd that starts the server
+	vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end

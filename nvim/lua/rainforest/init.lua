@@ -2,5 +2,5 @@
 vim.defer_fn(function ()
   require 'rainforest.bootstrap'
   require 'rainforest.plugins'
-  require 'rainforest.mappings'
+  require 'rainforest.mapping'
 end, 0)

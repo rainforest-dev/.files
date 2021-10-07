@@ -3,14 +3,14 @@ local utils = require'rainforest.utils'
 
 vim.g.mapleader = ' '
 
-local setup_mappings = function()
-	require 'rainforest.config.nerdtree'.setup_mapping()
-	require 'rainforest.config.lspsaga'.setup_mapping()
+local setup_mapping = function()
 	require 'rainforest.config.hop'.setup_mapping()
 	require 'rainforest.config.tmux'.setup_mapping()
 	require 'rainforest.config.comment'.setup_mapping()
 	require 'rainforest.config.neoscroll'.setup_mapping()
-
+	require 'rainforest.config.nerdtree'.setup_mapping()
+	require 'rainforest.config.lspsaga'.setup_mapping()
+	
 	-- Telescope
 	utils.key_mapper{
 		mode = 'n', 
@@ -210,28 +210,8 @@ G.setup_lsp_mappings = function(client, bufnr)
 		description = ''
 	}
 
-	-- Set some keybinds conditional on server capabilities
-	if client.resolved_capabilities.document_formatting then
-		utils.key_mapper{
-			mode = 'n', 
-			key = 'ff', 
-			cmd = '<cmd>lua vim.lsp.buf.formatting()<CR>',
-			category = 'Formatter',
-			unique_identifier = 'formatter_formatting',
-			description = ''
-		}
-	elseif client.resolved_capabilities.document_range_formatting then
-		utils.key_mapper{
-			mode = 'n', 
-			key = 'ff', 
-			cmd = '<cmd>lua vim.lsp.buf_range_formatting()<CR>',
-			category = 'Formatter',
-			unique_identifier = 'formatter_range_formatting',
-			description = ''
-		}
-	end
 end
 
-setup_mappings()
+setup_mapping()
 
 return G
