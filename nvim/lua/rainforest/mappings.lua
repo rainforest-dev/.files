@@ -4,6 +4,12 @@ local utils = require'rainforest.utils'
 vim.g.mapleader = ' '
 
 local setup_mappings = function()
+	require 'rainforest.config.nerdtree'.setup_mapping()
+	require 'rainforest.config.lspsaga'.setup_mapping()
+	require 'rainforest.config.hop'.setup_mapping()
+	require 'rainforest.config.tmux'.setup_mapping()
+	require 'rainforest.config.comment'.setup_mapping()
+
 	-- Telescope
 	utils.key_mapper{
 		mode = 'n', 
@@ -114,10 +120,6 @@ local setup_mappings = function()
 		description = ''
 	}
 
-	require 'rainforest.config.nerdtree'.setup_mapping()
-	require 'rainforest.config.lspsaga'.setup_mapping()
-	require 'rainforest.config.hop'.setup_mapping()
-	require 'rainforest.config.tmux'.setup_mapping()
 end
 
 G = {}
