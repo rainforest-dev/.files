@@ -9,6 +9,7 @@ local setup_mappings = function()
 	require 'rainforest.config.hop'.setup_mapping()
 	require 'rainforest.config.tmux'.setup_mapping()
 	require 'rainforest.config.comment'.setup_mapping()
+	require 'rainforest.config.neoscroll'.setup_mapping()
 
 	-- Telescope
 	utils.key_mapper{
