@@ -37,6 +37,12 @@ packer.startup(function()
 		end
 	}
 	use {
+		'karb94/neoscroll.nvim',
+		config = function ()
+			require 'rainforest.config.neoscroll'
+		end
+	}
+	use {
 		'aserowy/tmux.nvim',
 		config = function ()
 			require 'rainforest.config.tmux'
