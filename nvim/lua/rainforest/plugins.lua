@@ -42,6 +42,13 @@ packer.startup(function()
 			require 'rainforest.config.tmux'
 		end
 	}
+	--- comment tools
+	use {
+		'b3nj5m1n/kommentary',
+		config = function ()
+			require 'rainforest.config.comment'
+		end
+	}
 
 	-- File Explorer
 	use {
