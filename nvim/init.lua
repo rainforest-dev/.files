@@ -14,6 +14,7 @@ opt.smartindent = true
 
 opt.encoding = 'utf8'
 opt.guifont = 'Fira Code:h14'
+opt.termguicolors = true -- True color support
 
 -- use the system clipboard as the default register
 opt.clipboard = 'unnamed'
