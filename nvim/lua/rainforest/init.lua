@@ -1,8 +1,6 @@
-require'rainforest.plugins'
-require'rainforest.lsp'
-require'rainforest.completion'
-require'rainforest.formatter'
-require'rainforest.telescope'
-require'rainforest.treesitter'
-require'rainforest.git'
-require'rainforest.mappings'
+-- no need to load this immediately, since we have packer_compiled
+vim.defer_fn(function ()
+  require 'rainforest.bootstrap'
+  require 'rainforest.plugins'
+  require 'rainforest.mappings'
+end, 0)

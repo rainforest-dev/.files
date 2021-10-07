@@ -1,26 +1,4 @@
--- Aliases
-local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
-local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
-local execute = vim.api.nvim_command
-
--- ensure that packer is installed
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-    execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-    execute 'packadd packer.nvim'
-end
-
-cmd('packadd packer.nvim')
--- auto compile when there are changes in plugins.lua 
-cmd('autocmd BufWritePost plugins.lua PackerCompile')
-
--- Plugins
-local packer = require'packer'
-local util = require'packer.util'
-
-packer.init({
-	package_root = util.join_paths(fn.stdpath('data'), 'site', 'pack')
-})
+local packer = require 'packer'
 
 packer.startup(function()
 	local use = use
@@ -28,40 +6,108 @@ packer.startup(function()
 
 	-- colorscheme
 	-- use 'whatyouhide/vim-gotham'
-	use {'dracula/vim', as = 'dracula'}
+	use {
+		'dracula/vim', as = 'dracula', 
+		config = 'vim.cmd([[colorscheme dracula]])'
+	}
 	-- icon pack
 	use 'ryanoasis/vim-devicons'
+	-- status bar
+	use {
+  	'hoob3rt/lualine.nvim',
+		config = function ()
+			require 'rainforest.config.statusbar'
+		end,
+  	requires = {'kyazdani42/nvim-web-devicons', opt = true}
+	}
 
 	-- utils
 	use 'preservim/nerdtree'
 	use 'tiagofumo/vim-nerdtree-syntax-highlight'
 	use 'jiangmiao/auto-pairs'
+	-- TODO: Refine key mapping
+	use 'folke/which-key.nvim'
 	--- language packs for syntax and indentation
 	use 'sheerun/vim-polyglot'
+	--- cursur movement
+	use {
+		'phaazon/hop.nvim',
+		config = function ()
+			require 'rainforest.config.hop'
+		end
+	}
 
 	-- fuzzy finder
 	use {
 		'nvim-telescope/telescope.nvim',
-		requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+		config = function ()
+			require 'rainforest.config.telescope'
+		end,
+		requires = {
+			{'nvim-lua/popup.nvim'},
+			{'nvim-lua/plenary.nvim'},
+			{'gbrlsnchs/telescope-lsp-handlers.nvim'},
+			{'kyazdani42/nvim-web-devicons'}
+		}
 	}
+	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use 'nvim-telescope/telescope-packer.nvim'
 
 	-- LSP and completion
-	use 'neovim/nvim-lspconfig'
-	use 'kabouzeid/nvim-lspinstall'
-	use 'hrsh7th/nvim-compe'
-	use 'hrsh7th/vim-vsnip'
-	use 'hrsh7th/vim-vsnip-integ'
+	use {
+		'neovim/nvim-lspconfig',
+		event = 'BufReadPre',
+		config = function ()
+			require 'rainforest.config.lsp'
+		end,
+		requires = {
+			{'kabouzeid/nvim-lspinstall'},
+			{'RRethy/vim-illuminate'}
+		}
+	}
+	use {
+		'hrsh7th/nvim-compe',
+		event = 'BufReadPre',
+		config = function ()
+			require 'rainforest.config.completion'
+		end,
+		requires = {
+			{'hrsh7th/vim-vsnip'},
+			{'hrsh7th/vim-vsnip-integ'}
+		}
+	}
+	use {
+		'tami5/lspsaga.nvim',
+		config = function ()
+			require 'rainforest.config.lspsaga'
+		end,
+		-- requires = {'neovim/nvim-lspconfig'}
+	}
 
 	-- code formatting
-	use 'sbdchd/neoformat'
+	use {
+		'sbdchd/neoformat',
+		config = function ()
+			require 'rainforest.config.formatter'
+		end
+	}
 
 	-- flutter
 	use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
 
-	use 'nvim-treesitter/nvim-treesitter'
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		config = function ()
+			require 'rainforest.config.treesitter'
+		end,
+		run = ':TSUpdate'
+	}
 	
 	-- git
-	use 'APZelos/blamer.nvim'
-	end
-)
+	use {
+		'APZelos/blamer.nvim',
+		config = function ()
+			require 'rainforest.config.git'
+		end
+	}
+end)

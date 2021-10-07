@@ -2,8 +2,6 @@ local g = vim.g      -- a table to access global variables
 local opt = vim.opt  -- to set options
 
 -- Options
-g.colors_name = 'dracula'
-
 local indent, width = 2, 80 
 opt.colorcolumn = tostring(width)
 opt.cursorline = true
