@@ -117,6 +117,7 @@ local setup_mappings = function()
 	require 'rainforest.config.nerdtree'.setup_mapping()
 	require 'rainforest.config.lspsaga'.setup_mapping()
 	require 'rainforest.config.hop'.setup_mapping()
+	require 'rainforest.config.tmux'.setup_mapping()
 end
 
 G = {}
