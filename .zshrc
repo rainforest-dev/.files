@@ -18,6 +18,8 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-history-substring-search
 
+antigen bundle r08521610/history-sync
+
 # Theme
 # antigen theme denysdovhan/spaceship-prompt
 antigen theme dracula/zsh
