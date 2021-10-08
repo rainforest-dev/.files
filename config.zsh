@@ -1,3 +1,5 @@
+HISTFILE=$HOME/.zsh_history
+
 # history-sync
 ZSH_HISTORY_FILE_NAME=".zsh_history"
 ZSH_HISTORY_FILE="${HOME}/${ZSH_HISTORY_FILE_NAME}"
