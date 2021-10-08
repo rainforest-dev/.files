@@ -4,6 +4,13 @@ G = {}
 
 G.setup_mapping = function(client, bufnr)
 	utils.key_mapper({
+		key = '<leader>g',
+		cmd =  ':lua require "rainforest.config.telescope.functional".grep_prompt()<CR>',
+		category = 'Telescope',
+		unique_identifier = 'telescope_builtin_grep_prompt',
+		description = ''
+	})
+	utils.key_mapper({
 		mode = "n",
 		key = "<leader>ff",
 		cmd = ':lua require"telescope.builtin".find_files()<CR>',
