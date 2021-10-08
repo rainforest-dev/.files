@@ -20,7 +20,7 @@ function _lazygit_toggle()
 	lazygit:toggle()
 end
 
-local gotop = Terminal:new({ cmd = 'gotop', hidden = true })
+local gotop = Terminal:new({ cmd = 'gotop -l .files/gotop/layouts/rainforest -c vice', hidden = true, dir = '$HOME' })
 
 function _gotop_toggle()
 	gotop:toggle()
