@@ -14,6 +14,8 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY			# immediate append
+setopt EXTENDED_HISTORY				# add timestamp to history
 
 # Flutter
 export PATH="$PATH:$HOME/.flutter/bin"
