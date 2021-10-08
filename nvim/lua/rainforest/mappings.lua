@@ -10,6 +10,9 @@ local setup_mappings = function()
 	utils.key_mapper('n', '<leader>fb', ':lua require"telescope.builtin".buffers()<CR>')
 	utils.key_mapper('n', '<leader>fn', ':lua require"telescope.builtin".help_tags()<CR>')
 	utils.key_mapper('n', '<leader>tp', ':lua require"telescope".extensions.packer.plugins(opts)<CR>')
+	utils.key_mapper('n', '<leader>km', ':lua require"telescope.builtin".keymaps()<CR>')
+	utils.key_mapper('n', '<leader>co', ':lua require"telescope.builtin".colorscheme()<CR>')
+	utils.key_mapper('n', '<leader>gs', ':lua require"telescope.builtin".git_status()<CR>')
 	--- extensions
 	----flutter-tools.nvim
 	utils.key_mapper('n', '<F5>', ':lua require"telescope".extensions.flutter.commands()<CR>')
@@ -21,25 +24,25 @@ local setup_mappings = function()
 	utils.key_mapper('', '<leader><Left>', '^')
 	utils.key_mapper('', '<leader><Up>', 'H')
 	utils.key_mapper('', '<leader><Down>', 'L')
-	
+
+	require 'rainforest.config.lspsaga'.setup_mapping()
+	require 'rainforest.config.hop'.setup_mapping()
 end
 
 G = {}
 
 G.setup_lsp_mappings = function(client, bufnr)
 	-- LSP
-	utils.key_mapper('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
-	utils.key_mapper('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>')
-	utils.key_mapper('n', 'gr', ':lua vim.lsp.buf.references()<CR>')
-	utils.key_mapper('n', 'gt', ':lua vim.lsp.buf.type_definition()<CR>')
-	utils.key_mapper('n', 'K', ':lua vim.lsp.buf.hover()<CR>')
-	utils.key_mapper('n', '<c-k>', ':lua vim.lsp.buf.signature_help()<CR>')
-	utils.key_mapper('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>')
-	utils.key_mapper('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>')
-	utils.key_mapper('n', '<leader>[', ':lua vim.lsp.diagnostic.goto_prev()<CR>')
-	utils.key_mapper('n', '<leader>]', ':lua vim.lsp.diagnostic.goto_next()<CR>')
-	utils.key_mapper('n', '<leader>q', ':lua vim.lsp.diagnostic.set_loclist()<CR>')
-	utils.key_mapper('n', '<leader>f', ':lua vim.lsp.buf.formatting()<CR>')
+	utils.key_mapper('n', '<leader>d', ':lua require "telescope.builtin".lsp_workspace_diagnostics()<CR>', {noremap = true, silent = true})
+	utils.key_mapper('n', '<leader>D', ':lua require "telescope.builtin".lsp_document_diagnostics()<CR>', {noremap = true, silent = true})
+	utils.key_mapper('n', '<leader>o', ':lua require "telescope.builtin".lsp_document_symbols()<CR>', {noremap = true, silent = true})
+	utils.key_mapper('n', '<leader>w', ':lua require "telescope.builtin".lsp_workspace_symbols()<CR>', {noremap = true, silent = true})
+
+	utils.key_mapper('n', '<leader>gd', ':lua require "telescope.builtin".lsp_definitions()<CR>', {noremap = true, silent = true})
+	utils.key_mapper('n', '<leader>gD', ':lua require "telescope.builtin".lsp_declarations()<CR>', {noremap = true, silent = true})
+	utils.key_mapper('n', '<leader>gi', ':lua require "telescope.builtin".lsp_implementations()<CR>', {noremap = true, silent = true})
+	utils.key_mapper('n', '<leader>gt', ':lua require "telescope.builtin".lsp_typedefs()<CR>', {noremap = true, silent = true})
+	utils.key_mapper('n', '<leader>gr', ':lua require "telescope.builtin".lsp_references()<CR>', {noremap = true, silent = true})
 	
 	-- [hrsh7th/nvim-compe](https://github.com/hrsh7th/nvim-compe#vim-script-confi)
 	utils.key_mapper('i', '<tab>', 'v:lua.tab_complete()', {expr = true})
