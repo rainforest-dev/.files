@@ -1,3 +1,6 @@
+# gnupg
+export PATH="$(brew --prefix gnupg@2.2)/bin:$PATH"
+
 # zlib
 config_dependency zlib true
 
