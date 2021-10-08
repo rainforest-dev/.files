@@ -53,6 +53,9 @@ packer.startup(function()
 	use 'hrsh7th/vim-vsnip'
 	use 'hrsh7th/vim-vsnip-integ'
 
+	-- code formatting
+	use 'sbdchd/neoformat'
+
 	-- flutter
 	use {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'}
 
