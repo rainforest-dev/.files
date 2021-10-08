@@ -52,6 +52,13 @@ packer.startup(function()
 	}
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 	use 'nvim-telescope/telescope-packer.nvim'
+	use {
+		'lazytanuki/nvim-mapper',
+		config = function ()
+			require 'nvim-mapper'.setup{}
+		end,
+		before = 'telescope.nvim'
+	}
 
 	-- LSP and completion
 	use {
