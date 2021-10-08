@@ -117,6 +117,13 @@ packer.startup(function()
 		before = "telescope.nvim",
 	})
 
+	use {
+		'akinsho/toggleterm.nvim',
+		config = function ()
+			require 'rainforest.config.terminal'
+		end
+	}
+
 	-- LSP and completion
 	use({
 		"neovim/nvim-lspconfig",
