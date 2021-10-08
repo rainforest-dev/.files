@@ -13,5 +13,8 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY			# immediate append
+setopt EXTENDED_HISTORY				# add timestamp to history
 
 NVIM_CONFIG=$HOME/.config/nvim
