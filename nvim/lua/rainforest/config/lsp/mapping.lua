@@ -3,7 +3,6 @@ local utils = require("rainforest.utils")
 G = {}
 
 G.setup_mapping = function(client, bufnr)
-	print(client.resolved_capabilities.document_formatting)
 	-- Set some keybinds conditional on server capabilities
 	-- if client.resolved_capabilities.document_formatting then
 		utils.key_mapper({
