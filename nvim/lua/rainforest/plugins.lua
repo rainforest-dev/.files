@@ -6,15 +6,26 @@ packer.startup(function()
 
 	-- colorscheme
 	-- use 'whatyouhide/vim-gotham'
-	--use({
-	--	"dracula/vim",
-	--	as = "dracula",
-	--})
-	--use("arcticicestudio/nord-vim")
+	use({
+		"dracula/vim",
+		as = "dracula",
+	})
+	use({
+		"arcticicestudio/nord-vim",
+		config = "vim.cmd([[colorscheme nord]])",
+	})
 	use({
 		"tiagovla/tokyodark.nvim",
-		config = "vim.cmd([[colorscheme tokyodark]])",
+		-- config = "vim.cmd([[colorscheme tokyodark]])",
 	})
+	use {
+		'xiyaowong/nvim-transparent',
+		config = function ()
+			require 'transparent'.setup {
+				enable = true,
+			}
+		end
+	}
 	-- status bar
 	use({
 		"hoob3rt/lualine.nvim",
@@ -117,6 +128,13 @@ packer.startup(function()
 		before = "telescope.nvim",
 	})
 
+	use({
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("rainforest.config.terminal")
+		end,
+	})
+
 	-- LSP and completion
 	use({
 		"neovim/nvim-lspconfig",
@@ -142,6 +160,7 @@ packer.startup(function()
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "L3MON4D3/LuaSnip" },
+			{ "onsails/lspkind-nvim" },
 		},
 	})
 	use({
@@ -150,7 +169,6 @@ packer.startup(function()
 			require("rainforest.config.lspsaga")
 		end,
 	})
-
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()

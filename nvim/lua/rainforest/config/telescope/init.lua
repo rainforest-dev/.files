@@ -48,24 +48,6 @@ require 'nvim-mapper'.setup({
 	action_on_enter = 'execute'
 })
 
-local M = {}
-
-M.find_files = function()
-	builtin.find_files()
-end
-
-M.live_grep = function()
-	builtin.live_grep()
-end
-
-M.help_tags = function()
-  builtin.help_tags()
-end
-
-M.buffers = function()
-  builtin.buffers()
-end
-
 -- extensions
 telescope.load_extension('fzf')
 telescope.load_extension('lsp_handlers')
@@ -73,5 +55,3 @@ telescope.load_extension('mapper')
 --- flutter
 -- telescope.load_extension('flutter')
 
-
-return M
