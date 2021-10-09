@@ -2,7 +2,7 @@ local api = vim.api
 local configs = require'nvim-treesitter.configs'
 
 configs.setup {
-	ensure_installed = 'maintained',
+	ensure_installed = {'python', 'go', 'lua', 'bash', 'json', 'yaml'},
 	highlight = {
 		enable = true,
 	},

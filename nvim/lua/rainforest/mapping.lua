@@ -79,14 +79,14 @@ local setup_mapping = function()
 	}
 	--- extensions
 	----flutter-tools.nvim
-	utils.key_mapper{
+	--[[ utils.key_mapper{
 		mode = 'n', 
 		key = '<F5>', 
 		cmd = ':lua require"telescope".extensions.flutter.commands()<CR>',
 		category = 'Telescope',
 		unique_identifier = 'telescope_extensions_flutter_commands',
 		description = ''
-	}
+	} ]]
 	
 	utils.key_mapper{
 		mode = '', 

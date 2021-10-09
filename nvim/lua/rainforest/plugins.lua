@@ -6,11 +6,11 @@ packer.startup(function()
 
 	-- colorscheme
 	-- use 'whatyouhide/vim-gotham'
-	use({
-		"dracula/vim",
-		as = "dracula",
-	})
-	use("arcticicestudio/nord-vim")
+	--use({
+	--	"dracula/vim",
+	--	as = "dracula",
+	--})
+	--use("arcticicestudio/nord-vim")
 	use({
 		"tiagovla/tokyodark.nvim",
 		config = "vim.cmd([[colorscheme tokyodark]])",
@@ -25,23 +25,23 @@ packer.startup(function()
 	})
 
 	-- utils
-	use({
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup({ "*" }, {
-				RGB = true, -- #RGB hex codes
-				RRGGBB = true, -- #RRGGBB hex codes
-				names = true, -- "Name" codes like Blue
-				RRGGBBAA = true, -- #RRGGBBAA hex codes
-				rgb_fn = true, -- CSS rgb() and rgba() functions
-				hsl_fn = true, -- CSS hsl() and hsla() functions
-				css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-				css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-				-- Available modes: foreground, background
-				mode = "foreground", -- Set the display mode.
-			})
-		end,
-	})
+	-- use({
+	--	"norcalli/nvim-colorizer.lua",
+	--	config = function()
+	--		require("colorizer").setup({ "*" }, {
+	--			RGB = true, -- #RGB hex codes
+	--			RRGGBB = true, -- #RRGGBB hex codes
+	--			names = true, -- "Name" codes like Blue
+	--			RRGGBBAA = true, -- #RRGGBBAA hex codes
+	--			rgb_fn = true, -- CSS rgb() and rgba() functions
+	--			hsl_fn = true, -- CSS hsl() and hsla() functions
+	--			css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+	--			css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+	--			-- Available modes: foreground, background
+	--			mode = "foreground", -- Set the display mode.
+	--		})
+	--	end,
+	-- })
 	use("jiangmiao/auto-pairs")
 	-- TODO: Refine key mapping
 	use("folke/which-key.nvim")
@@ -160,15 +160,15 @@ packer.startup(function()
 	})
 
 	-- flutter
-	use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
+	-- use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
 
-	use({
+	--[[ use({
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("rainforest.config.treesitter")
 		end,
 		run = ":TSUpdate",
-	})
+	}) ]]
 
 	-- git
 	use({

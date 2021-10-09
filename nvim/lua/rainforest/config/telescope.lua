@@ -71,7 +71,7 @@ telescope.load_extension('fzf')
 telescope.load_extension('lsp_handlers')
 telescope.load_extension('mapper')
 --- flutter
-telescope.load_extension('flutter')
+-- telescope.load_extension('flutter')
 
 
 return M

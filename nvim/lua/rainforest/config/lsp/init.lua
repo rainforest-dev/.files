@@ -45,7 +45,7 @@ local function setup_servers()
 	end
 
 	-- flutter
-	require("flutter-tools").setup({})
+	-- require("flutter-tools").setup({})
 end
 
 setup_servers()
