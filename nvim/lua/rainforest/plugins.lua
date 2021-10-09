@@ -12,20 +12,28 @@ packer.startup(function()
 	})
 	use({
 		"arcticicestudio/nord-vim",
-		config = "vim.cmd([[colorscheme nord]])",
+		config = function()
+			local cmd = vim.cmd
+			cmd([[colorscheme nord]])
+			cmd([[
+				:hi clear CursorLine
+				:hi CursorLine gui=underline
+				:hi ColorColumn guibg=#87c0cf
+			]])
+		end,
 	})
 	use({
 		"tiagovla/tokyodark.nvim",
 		-- config = "vim.cmd([[colorscheme tokyodark]])",
 	})
-	use {
-		'xiyaowong/nvim-transparent',
-		config = function ()
-			require 'transparent'.setup {
+	use({
+		"xiyaowong/nvim-transparent",
+		config = function()
+			require("transparent").setup({
 				enable = true,
-			}
-		end
-	}
+			})
+		end,
+	})
 	-- status bar
 	use({
 		"hoob3rt/lualine.nvim",
@@ -54,11 +62,42 @@ packer.startup(function()
 		end,
 	})
 	use("jiangmiao/auto-pairs")
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			vim.cmd([[:hi IndentBlanklineIndent1 guifg=#bbb, gui=nocombine]])
+			require("indent_blankline").setup({
+				char = "|",
+				char_highlight_list = {
+					'IndentBlanklineIndent1'
+				},
+				show_first_indent_level = true,
+				filetype_exclude = { "help", "packer", "dashboard", "NvimTree" },
+				buftype_exclude = { "terminal", "nofile" },
+				char_highlight = "LineNr",
+				show_trailing_blankline_indent = false,
+				show_current_context = true,
+				context_patterns = {
+					"class",
+					"function",
+					"method",
+					"block",
+					"list_literal",
+					"selector",
+					"^if",
+					"^table",
+					"if_statement",
+					"while",
+					"for",
+				},
+			})
+		end,
+	})
 	-- TODO: Refine key mapping
 	use("folke/which-key.nvim")
 	--- language packs for syntax and indentation
 	use("sheerun/vim-polyglot")
-	--- cursur movement
+	--- cursor movement
 	use({
 		"phaazon/hop.nvim",
 		config = function()
@@ -138,7 +177,6 @@ packer.startup(function()
 	-- LSP and completion
 	use({
 		"neovim/nvim-lspconfig",
-		-- event = 'BufReadPre',
 		config = function()
 			require("rainforest.config.lsp")
 		end,
