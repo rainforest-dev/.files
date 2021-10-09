@@ -4,8 +4,10 @@
 // See https://hyper.is#cfg for all currently supported options.
 module.exports = {
     config: {
-        // hyper-opacity
-        opacity: 0.95,
+        hyperTransparent: {
+            transparent: 0.8,
+            vibrancy: 'dark'
+        },
         // choose either `'stable'` for receiving highly polished,
         // or `'canary'` for less polished but more frequent updates
         updateChannel: 'stable',
@@ -135,7 +137,13 @@ module.exports = {
     //   `hyperpower`
     //   `@company/project`
     //   `project#1.0.1`
-    plugins: ["hyperpower", "hyper-dracula", "hypercwd", "hyper-opacity", "nord-hyper"],
+    plugins: [
+        "hyper-dracula",
+        "hypercwd",
+        "nord-hyper",
+        "hyper-transparent",
+        "hyperpower"
+    ],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
