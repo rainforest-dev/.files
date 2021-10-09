@@ -1,3 +1,7 @@
+# coreutils
+# brew install coreutils
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
 # gnupg
 export PATH="$(brew --prefix gnupg@2.2)/bin:$PATH"
 

@@ -39,6 +39,9 @@ source $HOME/.files/config.java.zsh
 source $HOME/.files/config.go.zsh
 source $HOME/.files/config.k8s.zsh
 
+# activate [nord-dircolors](https://github.com/arcticicestudio/nord-dircolors)
+test -r "$HOME/.dir_colors" && eval $(dircolors $HOME/.dir_colors)
+
 # Created by `pipx` on 2021-04-28 13:15:39
 export PATH="$PATH:/Users/rainforest/.local/bin"
 
