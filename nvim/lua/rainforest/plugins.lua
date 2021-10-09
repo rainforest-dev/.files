@@ -128,12 +128,12 @@ packer.startup(function()
 		before = "telescope.nvim",
 	})
 
-	use {
-		'akinsho/toggleterm.nvim',
-		config = function ()
-			require 'rainforest.config.terminal'
-		end
-	}
+	use({
+		"akinsho/toggleterm.nvim",
+		config = function()
+			require("rainforest.config.terminal")
+		end,
+	})
 
 	-- LSP and completion
 	use({
@@ -160,7 +160,7 @@ packer.startup(function()
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "L3MON4D3/LuaSnip" },
-			{ "onsails/lspkind-nvim" }
+			{ "onsails/lspkind-nvim" },
 		},
 	})
 	use({
