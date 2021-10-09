@@ -18,6 +18,14 @@ packer.startup(function()
 		"tiagovla/tokyodark.nvim",
 		-- config = "vim.cmd([[colorscheme tokyodark]])",
 	})
+	use {
+		'xiyaowong/nvim-transparent',
+		config = function ()
+			require 'transparent'.setup {
+				enable = true,
+			}
+		end
+	}
 	-- status bar
 	use({
 		"hoob3rt/lualine.nvim",
