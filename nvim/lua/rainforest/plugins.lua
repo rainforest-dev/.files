@@ -12,20 +12,28 @@ packer.startup(function()
 	})
 	use({
 		"arcticicestudio/nord-vim",
-		config = "vim.cmd([[colorscheme nord]])",
+		config = function()
+			local cmd = vim.cmd
+			cmd([[colorscheme nord]])
+			cmd([[
+				:hi clear CursorLine
+				:hi CursorLine gui=underline
+				:hi ColorColumn guibg=#87c0cf
+			]])
+		end,
 	})
 	use({
 		"tiagovla/tokyodark.nvim",
 		-- config = "vim.cmd([[colorscheme tokyodark]])",
 	})
-	use {
-		'xiyaowong/nvim-transparent',
-		config = function ()
-			require 'transparent'.setup {
+	use({
+		"xiyaowong/nvim-transparent",
+		config = function()
+			require("transparent").setup({
 				enable = true,
-			}
-		end
-	}
+			})
+		end,
+	})
 	-- status bar
 	use({
 		"hoob3rt/lualine.nvim",
@@ -89,7 +97,7 @@ packer.startup(function()
 	use("folke/which-key.nvim")
 	--- language packs for syntax and indentation
 	use("sheerun/vim-polyglot")
-	--- cursur movement
+	--- cursor movement
 	use({
 		"phaazon/hop.nvim",
 		config = function()
@@ -169,7 +177,6 @@ packer.startup(function()
 	-- LSP and completion
 	use({
 		"neovim/nvim-lspconfig",
-		-- event = 'BufReadPre',
 		config = function()
 			require("rainforest.config.lsp")
 		end,

@@ -1,8 +1,12 @@
-local g = vim.g      -- a table to access global variables
-local opt = vim.opt  -- to set options
+local g = vim.g -- a table to access global variables
+local opt = vim.opt -- to set options
+
+opt.encoding = "utf8"
+opt.guifont = "Fira Code:h14"
+opt.termguicolors = true -- True color support
 
 -- Options
-local indent, width = 2, 80 
+local indent, width = 2, 100
 opt.colorcolumn = tostring(width)
 opt.cursorline = true
 opt.number = true
@@ -12,11 +16,8 @@ opt.tabstop = indent
 opt.smartcase = true
 opt.smartindent = true
 
-opt.encoding = 'utf8'
-opt.guifont = 'Fira Code:h14'
-opt.termguicolors = true -- True color support
-
 -- use the system clipboard as the default register
-opt.clipboard = 'unnamed'
+opt.clipboard = "unnamed"
+opt.mouse = "a"
 
-require'rainforest'
+require("rainforest")
