@@ -3,6 +3,7 @@ local fn = vim.fn
 local api = vim.api
 local completion = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 
 vim.o.completeopt = "menuone,noinsert"
 
@@ -60,6 +61,9 @@ completion.setup({
 			"i",
 			"s",
 		}),
+	},
+	formatting = {
+		format = lspkind.cmp_format({ with_text = true }),
 	},
 	experimental = {
 		native_menu = true,
