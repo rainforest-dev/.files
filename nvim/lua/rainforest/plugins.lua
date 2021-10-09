@@ -54,6 +54,37 @@ packer.startup(function()
 		end,
 	})
 	use("jiangmiao/auto-pairs")
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			vim.cmd([[:hi IndentBlanklineIndent1 guifg=#bbb, gui=nocombine]])
+			require("indent_blankline").setup({
+				char = "|",
+				char_highlight_list = {
+					'IndentBlanklineIndent1'
+				},
+				show_first_indent_level = true,
+				filetype_exclude = { "help", "packer", "dashboard", "NvimTree" },
+				buftype_exclude = { "terminal", "nofile" },
+				char_highlight = "LineNr",
+				show_trailing_blankline_indent = false,
+				show_current_context = true,
+				context_patterns = {
+					"class",
+					"function",
+					"method",
+					"block",
+					"list_literal",
+					"selector",
+					"^if",
+					"^table",
+					"if_statement",
+					"while",
+					"for",
+				},
+			})
+		end,
+	})
 	-- TODO: Refine key mapping
 	use("folke/which-key.nvim")
 	--- language packs for syntax and indentation
