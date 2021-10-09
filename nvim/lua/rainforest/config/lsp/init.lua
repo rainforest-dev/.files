@@ -20,6 +20,8 @@ local function make_config()
 			"additionalTextEdits",
 		},
 	}
+	-- cmp-nvim-lsp
+	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 	return {
 		-- enable snippet support
 		capabilities = capabilities,
