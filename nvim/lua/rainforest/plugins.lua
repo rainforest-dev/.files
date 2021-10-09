@@ -10,10 +10,13 @@ packer.startup(function()
 		"dracula/vim",
 		as = "dracula",
 	})
-	use("arcticicestudio/nord-vim")
+	use({
+		"arcticicestudio/nord-vim",
+		config = "vim.cmd([[colorscheme nord]])",
+	})
 	use({
 		"tiagovla/tokyodark.nvim",
-		config = "vim.cmd([[colorscheme tokyodark]])",
+		-- config = "vim.cmd([[colorscheme tokyodark]])",
 	})
 	-- status bar
 	use({
