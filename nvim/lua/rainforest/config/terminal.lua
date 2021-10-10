@@ -26,6 +26,12 @@ function _gotop_toggle()
 	gotop:toggle()
 end
 
+local setup = Terminal:new {cmd = 'nvim', hidden = true, dir = '$HOME/.files/'}
+
+function _setup_toggle()
+	setup:toggle()
+end
+
 G = {}
 
 G.setup_mapping = function()
@@ -42,6 +48,13 @@ G.setup_mapping = function()
 		category = "Terminal",
 		unique_identifier = "terminal_gotop",
 		description = "Terminal with gotop integrated",
+	})
+	utils.key_mapper({
+		key = [[\s]],
+		cmd = ":lua _setup_toggle()<CR>",
+		category = "Terminal",
+		unique_identifier = "terminal_setup",
+		description = "Terminal with .files setup integrated",
 	})
 end
 

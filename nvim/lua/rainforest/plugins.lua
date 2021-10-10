@@ -69,7 +69,7 @@ packer.startup(function()
 			require("indent_blankline").setup({
 				char = "|",
 				char_highlight_list = {
-					'IndentBlanklineIndent1'
+					"IndentBlanklineIndent1",
 				},
 				show_first_indent_level = true,
 				filetype_exclude = { "help", "packer", "dashboard", "NvimTree" },
@@ -93,7 +93,6 @@ packer.startup(function()
 			})
 		end,
 	})
-	-- TODO: Refine key mapping
 	use("folke/which-key.nvim")
 	--- language packs for syntax and indentation
 	use("sheerun/vim-polyglot")
