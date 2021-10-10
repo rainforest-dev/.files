@@ -198,6 +198,7 @@ packer.startup(function()
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "L3MON4D3/LuaSnip" },
 			{ "onsails/lspkind-nvim" },
+			{ "rafamadriz/friendly-snippets" },
 		},
 	})
 	use({

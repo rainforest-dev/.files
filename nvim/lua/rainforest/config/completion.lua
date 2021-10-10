@@ -19,6 +19,10 @@ local _has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+require("luasnip.loaders.from_vscode").lazy_load({
+	path = "$HOME/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+})
+
 -- [reference](https://github.com/mjlbach/defaults.nvim/blob/master/init.lua)
 completion.setup({
 	documentation = {
