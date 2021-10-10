@@ -23,8 +23,11 @@ packer.startup(function()
 		end,
 	})
 	use({
-		"tiagovla/tokyodark.nvim",
-		-- config = "vim.cmd([[colorscheme tokyodark]])",
+		"folke/tokyonight.nvim",
+		config = function()
+			vim.cmd([[colorscheme tokyonight]])
+			vim.g.tokyonight_transparent = true
+		end,
 	})
 	use({
 		"xiyaowong/nvim-transparent",
