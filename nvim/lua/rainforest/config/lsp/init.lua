@@ -7,7 +7,7 @@ local utils = require("rainforest.utils")
 local function on_attach(client, bufnr)
 	require("rainforest.config.lsp.mapping").setup_mapping(client, bufnr)
 	require("illuminate").on_attach(client)
-	print("Attaching to " .. client.name)
+	vim.notify("Attaching to " .. client.name, "info")
 end
 
 local function make_config()

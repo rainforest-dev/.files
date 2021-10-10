@@ -47,6 +47,14 @@ packer.startup(function()
 	})
 
 	-- utils
+	--- notifications
+	use({
+		"rcarriga/nvim-notify",
+		config = function()
+			require("rainforest.config.notifications")
+		end,
+	})
+
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
