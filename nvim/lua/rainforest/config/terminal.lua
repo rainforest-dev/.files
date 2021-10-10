@@ -20,13 +20,13 @@ function _lazygit_toggle()
 	lazygit:toggle()
 end
 
-local gotop = Terminal:new({ cmd = 'gotop -l .files/gotop/layouts/rainforest -c vice', hidden = true, dir = '$HOME' })
+local gotop = Terminal:new({ cmd = "gotop -l .files/gotop/layouts/rainforest -c vice", hidden = true, dir = "$HOME" })
 
 function _gotop_toggle()
 	gotop:toggle()
 end
 
-local setup = Terminal:new {cmd = 'nvim', hidden = true, dir = '$HOME/.files/'}
+local setup = Terminal:new({ cmd = "nvim", hidden = true, dir = "$HOME/.files/" })
 
 function _setup_toggle()
 	setup:toggle()
@@ -37,6 +37,7 @@ function _preview_toggle()
 	local preview = Terminal:new({ cmd = "glow -p -s dark " .. path, hidden = true })
 	preview:toggle()
 end
+
 G = {}
 
 G.setup_mapping = function()
