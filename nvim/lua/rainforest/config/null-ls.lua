@@ -11,4 +11,14 @@ null_ls.config({
 	},
 })
 
-require("lspconfig")["null-ls"].setup({})
+require("lspconfig")["null-ls"].setup({
+	on_attach = function(client)
+		-- format on save
+		if client.resolved_capabilities.document_formatting then
+			vim.cmd([[
+				autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+			]])
+			vim.notify("Auto Formatting On", "info")
+		end
+	end,
+})
