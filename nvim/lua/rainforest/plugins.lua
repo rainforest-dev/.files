@@ -184,15 +184,14 @@ packer.startup(function()
 		end,
 	})
 
-	--#region Orgmode
+	-- Neorg
 	use({
-		"kristijanhusak/orgmode.nvim",
-		branch = "tree-sitter",
+		"nvim-neorg/neorg",
 		config = function()
-			require("rainforest.config.orgmode")
+			require("rainforest.config.neorg")
 		end,
+		requires = "nvim-lua/plenary.nvim",
 	})
-	--#endregion
 
 	-- LSP and completion
 	use({
