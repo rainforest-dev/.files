@@ -184,6 +184,15 @@ packer.startup(function()
 		end,
 	})
 
+	-- Neorg
+	use({
+		"nvim-neorg/neorg",
+		config = function()
+			require("rainforest.config.neorg")
+		end,
+		requires = "nvim-lua/plenary.nvim",
+	})
+
 	-- LSP and completion
 	use({
 		"neovim/nvim-lspconfig",
