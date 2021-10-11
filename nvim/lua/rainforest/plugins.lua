@@ -45,6 +45,14 @@ packer.startup(function()
 		end,
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
+	-- tab bar
+	use({
+		"akinsho/bufferline.nvim",
+		config = function()
+			require("rainforest.config.tabbar")
+		end,
+		requires = "kyazdani42/nvim-web-devicons",
+	})
 
 	-- utils
 	--- notifications
