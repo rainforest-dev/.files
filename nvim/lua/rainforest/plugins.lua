@@ -74,6 +74,12 @@ packer.startup(function()
 	})
 	use("jiangmiao/auto-pairs")
 	use({
+		"stevearc/aerial.nvim",
+		config = function()
+			require("rainforest.config.aerial")
+		end,
+	})
+	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
 			vim.cmd([[:hi IndentBlanklineIndent1 guifg=#bbb, gui=nocombine]])

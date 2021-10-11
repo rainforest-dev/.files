@@ -5,6 +5,8 @@ local installer = require("lspinstall")
 local utils = require("rainforest.utils")
 
 local function on_attach(client, bufnr)
+	require("aerial").on_attach(client)
+	require("rainforest.config.aerial").setup_mapping()
 	require("rainforest.config.lsp.mapping").setup_mapping(client, bufnr)
 	require("illuminate").on_attach(client)
 	vim.notify("Attaching to " .. client.name, "info")
