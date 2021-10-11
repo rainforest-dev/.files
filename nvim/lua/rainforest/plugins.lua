@@ -12,20 +12,31 @@ packer.startup(function()
 	})
 	use({
 		"arcticicestudio/nord-vim",
-		config = "vim.cmd([[colorscheme nord]])",
+		config = function()
+			local cmd = vim.cmd
+			cmd([[colorscheme nord]])
+			cmd([[
+				:hi clear CursorLine
+				:hi CursorLine gui=underline
+				:hi ColorColumn guibg=#87c0cf
+			]])
+		end,
 	})
 	use({
-		"tiagovla/tokyodark.nvim",
-		-- config = "vim.cmd([[colorscheme tokyodark]])",
+		"folke/tokyonight.nvim",
+		config = function()
+			-- vim.cmd([[colorscheme tokyonight]])
+			-- vim.g.tokyonight_transparent = true
+		end,
 	})
-	use {
-		'xiyaowong/nvim-transparent',
-		config = function ()
-			require 'transparent'.setup {
+	use({
+		"xiyaowong/nvim-transparent",
+		config = function()
+			require("transparent").setup({
 				enable = true,
-			}
-		end
-	}
+			})
+		end,
+	})
 	-- status bar
 	use({
 		"hoob3rt/lualine.nvim",
@@ -36,29 +47,73 @@ packer.startup(function()
 	})
 
 	-- utils
-	-- use({
-	--	"norcalli/nvim-colorizer.lua",
-	--	config = function()
-	--		require("colorizer").setup({ "*" }, {
-	--			RGB = true, -- #RGB hex codes
-	--			RRGGBB = true, -- #RRGGBB hex codes
-	--			names = true, -- "Name" codes like Blue
-	--			RRGGBBAA = true, -- #RRGGBBAA hex codes
-	--			rgb_fn = true, -- CSS rgb() and rgba() functions
-	--			hsl_fn = true, -- CSS hsl() and hsla() functions
-	--			css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-	--			css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-	--			-- Available modes: foreground, background
-	--			mode = "foreground", -- Set the display mode.
-	--		})
-	--	end,
-	-- })
+	--- notifications
+	use({
+		"rcarriga/nvim-notify",
+		config = function()
+			require("rainforest.config.notifications")
+		end,
+	})
+
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup({ "*" }, {
+				RGB = true, -- #RGB hex codes
+				RRGGBB = true, -- #RRGGBB hex codes
+				names = true, -- "Name" codes like Blue
+				RRGGBBAA = true, -- #RRGGBBAA hex codes
+				rgb_fn = true, -- CSS rgb() and rgba() functions
+				hsl_fn = true, -- CSS hsl() and hsla() functions
+				css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+				css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+				-- Available modes: foreground, background
+				mode = "foreground", -- Set the display mode.
+			})
+		end,
+	})
 	use("jiangmiao/auto-pairs")
-	-- TODO: Refine key mapping
+	use({
+		"stevearc/aerial.nvim",
+		config = function()
+			require("rainforest.config.aerial")
+		end,
+	})
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			vim.cmd([[:hi IndentBlanklineIndent1 guifg=#bbb, gui=nocombine]])
+			require("indent_blankline").setup({
+				char = "|",
+				char_highlight_list = {
+					"IndentBlanklineIndent1",
+				},
+				show_first_indent_level = true,
+				filetype_exclude = { "help", "packer", "dashboard", "NvimTree" },
+				buftype_exclude = { "terminal", "nofile" },
+				char_highlight = "LineNr",
+				show_trailing_blankline_indent = false,
+				show_current_context = true,
+				context_patterns = {
+					"class",
+					"function",
+					"method",
+					"block",
+					"list_literal",
+					"selector",
+					"^if",
+					"^table",
+					"if_statement",
+					"while",
+					"for",
+				},
+			})
+		end,
+	})
 	use("folke/which-key.nvim")
 	--- language packs for syntax and indentation
 	use("sheerun/vim-polyglot")
-	--- cursur movement
+	--- cursor movement
 	use({
 		"phaazon/hop.nvim",
 		config = function()
@@ -135,10 +190,18 @@ packer.startup(function()
 		end,
 	})
 
+	-- Neorg
+	use({
+		"nvim-neorg/neorg",
+		config = function()
+			require("rainforest.config.neorg")
+		end,
+		requires = "nvim-lua/plenary.nvim",
+	})
+
 	-- LSP and completion
 	use({
 		"neovim/nvim-lspconfig",
-		-- event = 'BufReadPre',
 		config = function()
 			require("rainforest.config.lsp")
 		end,
@@ -161,6 +224,7 @@ packer.startup(function()
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "L3MON4D3/LuaSnip" },
 			{ "onsails/lspkind-nvim" },
+			{ "rafamadriz/friendly-snippets" },
 		},
 	})
 	use({

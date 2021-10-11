@@ -4,11 +4,11 @@ G = {}
 
 G.setup_mapping = function(client, bufnr)
 	utils.key_mapper({
-		key = '<leader>g',
-		cmd =  ':lua require "rainforest.config.telescope.functional".grep_prompt()<CR>',
-		category = 'Telescope',
-		unique_identifier = 'telescope_builtin_grep_prompt',
-		description = ''
+		key = "<leader>g",
+		cmd = ':lua require "rainforest.config.telescope.functional".grep_prompt()<CR>',
+		category = "Telescope",
+		unique_identifier = "telescope_builtin_grep_prompt",
+		description = "",
 	})
 	utils.key_mapper({
 		mode = "n",
@@ -75,6 +75,14 @@ G.setup_mapping = function(client, bufnr)
 		category = "Telescope",
 		unique_identifier = "telescope_extensions_packer",
 		description = "",
+	})
+	utils.key_mapper({
+		mode = "n",
+		key = "<leader>no",
+		cmd = ':lua require"telescope".extensions.notify.notify(opts)<CR>',
+		category = "Telescope",
+		unique_identifier = "telescope_extensions_notify",
+		description = "List all of the notifications.",
 	})
 	----flutter-tools.nvim
 	utils.key_mapper({

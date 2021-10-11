@@ -26,6 +26,17 @@ function _gotop_toggle()
 	gotop:toggle()
 end
 
+local setup = Terminal:new {cmd = 'nvim', hidden = true, dir = '$HOME/.files/'}
+
+function _setup_toggle()
+	setup:toggle()
+end
+
+function _preview_toggle()
+	local path = vim.fn.expand("%")
+	local preview = Terminal:new({ cmd = "glow -p -s dark " .. path, hidden = true })
+	preview:toggle()
+end
 G = {}
 
 G.setup_mapping = function()
@@ -42,6 +53,20 @@ G.setup_mapping = function()
 		category = "Terminal",
 		unique_identifier = "terminal_gotop",
 		description = "Terminal with gotop integrated",
+	})
+	utils.key_mapper({
+		key = [[\s]],
+		cmd = ":lua _setup_toggle()<CR>",
+		category = "Terminal",
+		unique_identifier = "terminal_setup",
+		description = "Terminal with .files setup integrated",
+	})
+	utils.key_mapper({
+		key = [[\p]],
+		cmd = ":lua _preview_toggle()<CR>",
+		category = "Terminal",
+		unique_identifier = "terminal_preview",
+		description = "Terminal with files preview integrated",
 	})
 end
 
