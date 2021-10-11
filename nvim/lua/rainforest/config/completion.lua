@@ -81,12 +81,12 @@ completion.setup({
 		ghost_text = false,
 	},
 	sources = {
-		{ name = "buffer" },
-		{ name = "path" },
-		{ name = "calc" },
-		{ name = "emoji" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
+		{ name = "path" },
 		{ name = "neorg" },
+		{ name = "calc" },
+		{ name = "emoji" },
+		{ name = "buffer" },
 	},
 })
