@@ -20,7 +20,15 @@ G.setup_mapping = function(client, bufnr)
 	})
 	utils.key_mapper({
 		mode = "n",
-		key = "<leader>fg",
+		key = "<leader>fb",
+		cmd = ':lua require"telescope.builtin".file_browser()<CR>',
+		category = "Telescope",
+		unique_identifier = "telescope_builtin_file_browser",
+		description = "Lists files and folders in your current working directory, open files, navigate your filesystem, and create new files and folders",
+	})
+	utils.key_mapper({
+		mode = "n",
+		key = "<leader>lg",
 		cmd = ':lua require"telescope.builtin".live_grep()<CR>',
 		category = "Telescope",
 		unique_identifier = "telescope_builtin_live_grep",
@@ -28,7 +36,7 @@ G.setup_mapping = function(client, bufnr)
 	})
 	utils.key_mapper({
 		mode = "n",
-		key = "<leader>fb",
+		key = "<leader>bf",
 		cmd = ':lua require"telescope.builtin".buffers()<CR>',
 		category = "Telescope",
 		unique_identifier = "telescope_builtin_buffers",
@@ -36,7 +44,7 @@ G.setup_mapping = function(client, bufnr)
 	})
 	utils.key_mapper({
 		mode = "n",
-		key = "<leader>fn",
+		key = "<leader>ht",
 		cmd = ':lua require"telescope.builtin".help_tags()<CR>',
 		category = "Telescope",
 		unique_identifier = "telescope_builtin_help_tags",
