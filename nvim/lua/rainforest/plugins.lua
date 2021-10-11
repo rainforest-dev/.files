@@ -25,8 +25,8 @@ packer.startup(function()
 	use({
 		"folke/tokyonight.nvim",
 		config = function()
-			vim.cmd([[colorscheme tokyonight]])
-			vim.g.tokyonight_transparent = true
+			-- vim.cmd([[colorscheme tokyonight]])
+			-- vim.g.tokyonight_transparent = true
 		end,
 	})
 	use({
