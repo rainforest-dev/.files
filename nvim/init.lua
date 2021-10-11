@@ -22,6 +22,6 @@ opt.smarttab = true
 
 -- use the system clipboard as the default register
 opt.clipboard = "unnamed"
-opt.mouse = "a"
+opt.mouse = "nv"
 
 require("rainforest")
