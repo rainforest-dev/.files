@@ -21,6 +21,7 @@ languages = {
 	"jsonc",
 	"lua",
 	"norg",
+	"python",
 	"regex",
 	"vim",
 	"yaml",
