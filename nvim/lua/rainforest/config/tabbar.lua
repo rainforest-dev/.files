@@ -1,5 +1,10 @@
 local utils = require("rainforest.utils")
 
+require("bufdel").setup({
+	next = "alternative", -- or 'cycle'
+	quit = true, -- exit Neovim when closing last buffer
+})
+
 require("bufferline").setup({
 	options = {
 		numbers = function(opts)
@@ -12,12 +17,10 @@ require("bufferline").setup({
 			-- }
 			return string.format("%s.", opts.ordinal)
 		end,
-		show_buffer_close_icons = false,
-		show_close_icon = false,
 		left_trunc_marker = "",
 		right_trunc_marker = "",
 		close_command = function(bufnum)
-			require("bufdelete").bufdelete(bufnum, false)
+			require("bufdel").delete_buffer(bufnum, false)
 		end,
 		diagnostics = "nvim_lsp",
 		seperator_style = "thin",
@@ -65,7 +68,7 @@ G.setup_mapping = function()
 	utils.key_mapper({
 		mode = "n",
 		key = "<leader>db",
-		cmd = ":lua require('bufdelete').bufdelete(0, false)<CR>",
+		cmd = ":lua require('bufdel').delete_buffer(nil, false)<CR>",
 		category = "Tabbar",
 		unique_identifier = "tabbar_delete_current_buffer",
 		description = "Delete current buffer",
