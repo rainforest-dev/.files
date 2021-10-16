@@ -238,12 +238,6 @@ packer.startup({
 			},
 		})
 		use({
-			"tami5/lspsaga.nvim",
-			config = function()
-				require("rainforest.config.lspsaga")
-			end,
-		})
-		use({
 			"jose-elias-alvarez/null-ls.nvim",
 			config = function()
 				require("rainforest.config.null-ls")
