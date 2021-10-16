@@ -10,8 +10,23 @@ parser_configs.norg = {
 	},
 }
 
+languages = {
+	"bash",
+	"comment",
+	"dockerfile",
+	"go",
+	"gomod",
+	"json",
+	"json5",
+	"jsonc",
+	"lua",
+	"regex",
+	"vim",
+	"yaml",
+}
+
 configs.setup({
-	ensure_installed = "maintained",
+	ensure_installed = languages,
 	highlight = {
 		enable = true,
 		disable = { "org" },
