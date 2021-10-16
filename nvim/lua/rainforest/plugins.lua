@@ -214,7 +214,7 @@ packer.startup(function()
 			require("rainforest.config.lsp")
 		end,
 		requires = {
-			{ "kabouzeid/nvim-lspinstall" },
+			{ "williamboman/nvim-lsp-installer" },
 			{ "RRethy/vim-illuminate" },
 		},
 	})

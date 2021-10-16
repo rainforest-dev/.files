@@ -1,8 +1,19 @@
 local vim = vim
 
 local lspconfig = require("lspconfig")
-local installer = require("lspinstall")
+local installer = require("nvim-lsp-installer")
 local utils = require("rainforest.utils")
+
+local servers = {
+	"sumneko_lua",
+	"diagnosticls",
+	"bashls",
+	"gopls",
+	"dockerls",
+	"pyright",
+	"yamlls",
+	"jsonls",
+}
 
 local function on_attach(client, bufnr)
 	require("aerial").on_attach(client)
@@ -34,18 +45,25 @@ end
 
 -- setup language servers here
 local function setup_servers()
-	installer.setup()
-
-	-- get all installed servers
-	local servers = installer.installed_servers()
 	for _, server in pairs(servers) do
+		local ok, analyzer = installer.get_server(server)
+		if ok then
+			if not analyzer:is_installed() then
+				analyzer:install()
+			end
+		end
+	end
+
+	-- register installed language servers
+	local installed_servers = installer.get_installed_servers()
+	for _, server in pairs(installed_servers) do
 		local config = make_config()
 		-- language specific config
 		utils.switch(server, {
 			["lua"] = function() end,
 			["go"] = function() end,
 		})
-		lspconfig[server].setup(config)
+		server:setup(config)
 	end
 
 	-- flutter
