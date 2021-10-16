@@ -20,6 +20,7 @@ languages = {
 	"json5",
 	"jsonc",
 	"lua",
+	"norg",
 	"regex",
 	"vim",
 	"yaml",

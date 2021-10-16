@@ -205,7 +205,8 @@ packer.startup({
 			config = function()
 				require("rainforest.config.neorg")
 			end,
-			requires = "nvim-lua/plenary.nvim",
+			after = "nvim-treesitter",
+			requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
 		})
 
 		-- LSP and completion
