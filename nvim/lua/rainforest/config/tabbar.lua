@@ -12,11 +12,23 @@ require("bufferline").setup({
 			-- }
 			return string.format("%s.", opts.ordinal)
 		end,
+		show_buffer_close_icons = false,
+		show_close_icon = false,
 		left_trunc_marker = "",
 		right_trunc_marker = "",
+		close_command = function(bufnum)
+			require("bufdelete").bufdelete(bufnum, false)
+		end,
 		diagnostics = "nvim_lsp",
-		seperator_style = "slant",
+		seperator_style = "thin",
 		always_show_bufferline = false,
+		offsets = {
+			{
+				filetype = "NvimTree",
+				test = "File Explorer",
+				text_align = "center",
+			},
+		},
 	},
 })
 
@@ -49,6 +61,16 @@ G.setup_mapping = function()
 		unique_identifier = "tabbar_move_prev_tab",
 		description = "Move to prev tab",
 	})
+	-- close buffer
+	utils.key_mapper({
+		mode = "n",
+		key = "<leader>db",
+		cmd = ":lua require('bufdelete').bufdelete(0, false)<CR>",
+		category = "Tabbar",
+		unique_identifier = "tabbar_delete_current_buffer",
+		description = "Delete current buffer",
+	})
+
 	--#region Customize Navigate
 	utils.key_mapper({
 		mode = "n",

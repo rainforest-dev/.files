@@ -51,7 +51,7 @@ packer.startup(function()
 		config = function()
 			require("rainforest.config.tabbar")
 		end,
-		requires = "kyazdani42/nvim-web-devicons",
+		requires = { "kyazdani42/nvim-web-devicons", "famiu/bufdelete.nvim" },
 	})
 
 	-- utils
