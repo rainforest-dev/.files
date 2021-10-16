@@ -2,9 +2,9 @@ local utils = require("rainforest.utils")
 
 G = {}
 
-G.setup_mapping = function(client, bufnr)
+G.setup_mapping = function()
 	utils.key_mapper({
-		key = "<leader>g",
+		key = "<leader>gp",
 		cmd = ':lua require "rainforest.config.telescope.functional".grep_prompt()<CR>',
 		category = "Telescope",
 		unique_identifier = "telescope_builtin_grep_prompt",
@@ -41,6 +41,14 @@ G.setup_mapping = function(client, bufnr)
 		category = "Telescope",
 		unique_identifier = "telescope_builtin_buffers",
 		description = "Lists open buffers in current neovim instance",
+	})
+	utils.key_mapper({
+		mode = "n",
+		key = "<leader>qf",
+		cmd = ':lua require"telescope.builtin".quickfix()<CR>',
+		category = "Telescope",
+		unique_identifier = "telescope_quickfix",
+		description = "Lists items in the quickfix list",
 	})
 	utils.key_mapper({
 		mode = "n",

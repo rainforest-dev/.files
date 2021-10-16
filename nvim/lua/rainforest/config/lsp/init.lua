@@ -19,6 +19,7 @@ local function on_attach(client, bufnr)
 	require("aerial").on_attach(client)
 	require("rainforest.config.aerial").setup_mapping()
 	require("rainforest.config.lsp.mapping").setup_mapping(client, bufnr)
+	require("rainforest.config.telescope.mapping.lsp").setup_mapping()
 	-- add signature autocompletion while typing
 	require("lsp_signature").on_attach({})
 	vim.notify("Attaching to " .. client.name, "info")
