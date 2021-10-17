@@ -10,8 +10,9 @@ local setup_mapping = function()
 	require("rainforest.config.comment").setup_mapping()
 	require("rainforest.config.neoscroll").setup_mapping()
 	require("rainforest.config.nvim-tree").setup_mapping()
-	require("rainforest.config.lspsaga").setup_mapping()
 	require("rainforest.config.terminal").setup_mapping()
+	require("rainforest.config.tabbar").setup_mapping()
+	require("rainforest.config.neorg").setup_mapping()
 
 	utils.key_mapper({
 		mode = "",
