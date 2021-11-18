@@ -30,14 +30,14 @@ packer.startup({
 				-- vim.g.tokyonight_transparent = true
 			end,
 		})
-		use({
-			"xiyaowong/nvim-transparent",
-			config = function()
-				require("transparent").setup({
-					enable = true,
-				})
-			end,
-		})
+		--		use({
+		--			"xiyaowong/nvim-transparent",
+		--			config = function()
+		--				require("transparent").setup({
+		--					enable = true,
+		--				})
+		--			end,
+		--		})
 		-- status bar
 		use({
 			"hoob3rt/lualine.nvim",
@@ -64,23 +64,23 @@ packer.startup({
 			end,
 		})
 
-		use({
-			"norcalli/nvim-colorizer.lua",
-			config = function()
-				require("colorizer").setup({ "*" }, {
-					RGB = true, -- #RGB hex codes
-					RRGGBB = true, -- #RRGGBB hex codes
-					names = true, -- "Name" codes like Blue
-					RRGGBBAA = true, -- #RRGGBBAA hex codes
-					rgb_fn = true, -- CSS rgb() and rgba() functions
-					hsl_fn = true, -- CSS hsl() and hsla() functions
-					css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-					css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-					-- Available modes: foreground, background
-					mode = "foreground", -- Set the display mode.
-				})
-			end,
-		})
+		--		use({
+		--			"norcalli/nvim-colorizer.lua",
+		--			config = function()
+		--				require("colorizer").setup({ "*" }, {
+		--					RGB = true, -- #RGB hex codes
+		--					RRGGBB = true, -- #RRGGBB hex codes
+		--					names = true, -- "Name" codes like Blue
+		--					RRGGBBAA = true, -- #RRGGBBAA hex codes
+		--					rgb_fn = true, -- CSS rgb() and rgba() functions
+		--					hsl_fn = true, -- CSS hsl() and hsla() functions
+		--					css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+		--					css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+		--					-- Available modes: foreground, background
+		--					mode = "foreground", -- Set the display mode.
+		--				})
+		--			end,
+		--		})
 		use("jiangmiao/auto-pairs")
 		use({
 			"stevearc/aerial.nvim",
@@ -161,13 +161,13 @@ packer.startup({
 		})
 
 		--- Dashboard
-		use({
-			"glepnir/dashboard-nvim",
-			config = function()
-				require("rainforest.config.dashboard")
-			end,
-			requires = { "nvim-telescope/telescope.nvim" },
-		})
+		--		use({
+		--			"glepnir/dashboard-nvim",
+		--			config = function()
+		--				require("rainforest.config.dashboard")
+		--			end,
+		--			requires = { "nvim-telescope/telescope.nvim" },
+		--		})
 
 		-- fuzzy finder
 		use({
@@ -200,14 +200,14 @@ packer.startup({
 		})
 
 		-- Neorg
-		use({
-			"nvim-neorg/neorg",
-			config = function()
-				require("rainforest.config.neorg")
-			end,
-			after = "nvim-treesitter",
-			requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
-		})
+		--		use({
+		--			"nvim-neorg/neorg",
+		--			config = function()
+		--				require("rainforest.config.neorg")
+		--			end,
+		--			after = "nvim-treesitter",
+		--			requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
+		--		})
 
 		-- LSP and completion
 		use({
@@ -245,10 +245,10 @@ packer.startup({
 			requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 		})
 
-	-- flutter
-	-- use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
+		-- flutter
+		-- use({ "akinsho/flutter-tools.nvim", requires = "nvim-lua/plenary.nvim" })
 
-	--[[ use({
+		--[[ use({
 		"nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("rainforest.config.treesitter")
