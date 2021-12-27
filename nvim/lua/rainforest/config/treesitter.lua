@@ -2,14 +2,6 @@ local api = vim.api
 local configs = require("nvim-treesitter.configs")
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
-parser_configs.norg = {
-	install_info = {
-		url = "https://github.com/nvim-neorg/tree-sitter-norg",
-		files = { "src/parser.c", "src/scanner.cc" },
-		branch = "main",
-	},
-}
-
 languages = {
 	"bash",
 	"comment",
@@ -20,7 +12,6 @@ languages = {
 	"json5",
 	"jsonc",
 	"lua",
-	"norg",
 	"python",
 	"regex",
 	"vim",
