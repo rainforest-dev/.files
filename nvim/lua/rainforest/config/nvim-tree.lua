@@ -6,10 +6,14 @@ require 'nvim-tree'.setup {
   auto_close = true,
   view = {
     auto_resize = true
+  },
+  filters = {
+    custom = {
+      'node_modules', '__pycache__', '.cache'
+    }
   }
 }
 
-g.nvim_tree_ignore = {'node_modules', '__pycache__', '.cache'}
 g.nvim_tree_indent_markers = 1
 g.nvim_tree_git_hl = 1
 g.nvim_tree_refresh_wait = 500
