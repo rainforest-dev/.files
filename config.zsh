@@ -1,26 +1,15 @@
-HISTFILE=$HOME/.zsh_history
+# reset
+export LDFLAGS=""
+export CPPFLAGS=""
 
-# history-sync
-ZSH_HISTORY_FILE_NAME=".zsh_history"
-ZSH_HISTORY_FILE="${HOME}/${ZSH_HISTORY_FILE_NAME}"
-ZSH_HISTORY_PROJ="${HOME}/.zsh_history_proj"
-ZSH_HISTORY_FILE_ENC_NAME="zsh_history.gpg"
-ZSH_HISTORY_FILE_ENC="${ZSH_HISTORY_PROJ}/${ZSH_HISTORY_FILE_ENC_NAME}"
-GIT_COMMIT_MSG="latest Mac mini @ $(date)"
-
-# export HISTFILE=$HOME/.files/.zsh_history/.zsh_history
-
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_REDUCE_BLANKS
-setopt INC_APPEND_HISTORY			# immediate append
-setopt EXTENDED_HISTORY				# add timestamp to history
-
-# Flutter
-export PATH="$PATH:$HOME/.flutter/bin"
-export CHROME_EXECUTABLE=/Applications/Microsoft\ Edge.app/Contents/MacOS/Microsoft\ Edge
+source $HOME/.files/config.utils.zsh
+source $HOME/.files/config.dependencies.zsh
 
 NVIM_CONFIG=$HOME/.config/nvim
+
+# activate [nord-dircolors](https://github.com/arcticicestudio/nord-dircolors)
+test -r "$HOME/.dir_colors" && eval $(dircolors $HOME/.dir_colors)
+
+# Config where to link apps installed by Homebrew
+export HOMEBREW_CASK_OPTS="--appdir=$HOME/Applications"
+

@@ -1,0 +1,25 @@
+# Start configuration added by Zim install {{{
+# -------
+# Modules
+# -------
+
+zmodule environment
+zmodule git
+zmodule input
+zmodule termtitle
+zmodule utility
+
+#
+# Prompt
+#
+zmodule duration-info
+zmodule git-info
+zmodule romkatv/powerlevel10k
+
+zmodule zsh-users/zsh-completions
+zmodule completion
+zmodule zdharma-continuum/fast-syntax-highlighting
+zmodule zsh-users/zsh-history-substring-search
+zmodule zsh-users/zsh-autosuggestions
+# }}} End configuration added by Zim install
+
