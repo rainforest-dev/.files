@@ -16,7 +16,7 @@ local servers = {
 }
 
 local function on_attach(client, bufnr)
-	require("aerial").on_attach(client)
+	require("aerial").on_attach(client, bufnr)
 	require("rainforest.config.aerial").setup_mapping()
 	require("rainforest.config.lsp.mapping").setup_mapping(client, bufnr)
 	require("rainforest.config.telescope.mapping.lsp").setup_mapping()
