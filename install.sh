@@ -13,6 +13,7 @@ ln -s $HOME/.files/.zimrc $HOME
 ln -s $HOME/.files/.p10k.zsh $HOME
 zimfw install
 source $HOME/.zshrc
+sudo apt update
 sudo apt install ripgrep neovim
 mkdir -p $(dirname $NVIM_CONFIG)
 ln -s $HOME/.files/nvim $(dirname $NVIM_CONFIG)
