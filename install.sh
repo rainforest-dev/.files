@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/zsh
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 source $HOME/.zshrc
 mv $HOME/.dir_colors $HOME/.dir_colors.backup
