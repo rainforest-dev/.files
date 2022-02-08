@@ -1,4 +1,5 @@
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+exec $SHELL
 mv $HOME/.dir_colors $HOME/.dir_colors.backup
 mv $HOME/.zprofile $HOME/.zprofile.backup
 mv $HOME/.zshrc $HOME/.zshrc.backup
@@ -11,6 +12,6 @@ ln -s $HOME/.files/.zimrc $HOME
 ln -s $HOME/.files/.p10k.zsh $HOME
 zimfw install
 source $HOME/.zshrc
-apt install ripgrep neovim
+sudo apt install ripgrep neovim
 mkdir -p $(dirname $NVIM_CONFIG)
 ln -s $HOME/.files/nvim $(dirname $NVIM_CONFIG)
