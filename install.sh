@@ -14,6 +14,10 @@ ln -s $HOME/.files/.p10k.zsh $HOME
 zimfw install
 source $HOME/.zshrc
 sudo apt update
-sudo apt install ripgrep neovim
+sudo apt install snapd
+sudo snap install core
+sudo snap install nvim --classic
+sudo apt install -y ripgrep
+rm -r $(dirname $NVIM_CONFIG)
 mkdir -p $(dirname $NVIM_CONFIG)
 ln -s $HOME/.files/nvim $(dirname $NVIM_CONFIG)
