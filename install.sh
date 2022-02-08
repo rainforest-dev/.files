@@ -15,8 +15,8 @@ zimfw install
 source $HOME/.zshrc
 sudo apt update
 sudo apt install -y snapd
-sudo snap install -y core
-sudo snap install  --classic -y nvim
+sudo snap install core
+sudo snap install  --classic nvim
 sudo apt install -y ripgrep
 rm -r $(dirname $NVIM_CONFIG)
 mkdir -p $(dirname $NVIM_CONFIG)
