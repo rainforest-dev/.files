@@ -11,3 +11,7 @@ chmod u+x ~/.files/install.sh
 ```bash
 ./install.sh
 ```
+or
+```bash
+git clone --single-branch https://github.com/r08521610/.files.git $HOME/.files && $HOME/.files/install.sh
+```
