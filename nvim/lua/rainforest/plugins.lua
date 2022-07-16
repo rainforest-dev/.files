@@ -49,6 +49,7 @@ packer.startup({
 		-- tab bar
 		use({
 			"akinsho/bufferline.nvim",
+			tag = "v2.*",
 			config = function()
 				require("rainforest.config.tabbar")
 			end,
@@ -194,6 +195,7 @@ packer.startup({
 
 		use({
 			"akinsho/toggleterm.nvim",
+			tag = 'v2.*',
 			config = function()
 				require("rainforest.config.terminal")
 			end,

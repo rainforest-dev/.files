@@ -25,8 +25,8 @@ require("luasnip.loaders.from_vscode").lazy_load({
 
 -- [reference](https://github.com/mjlbach/defaults.nvim/blob/master/init.lua)
 completion.setup({
-	documentation = {
-		border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" },
+	window = {
+		documentation = cmp.config.window.bordered()
 	},
 	snippet = {
 		expand = function(args)
