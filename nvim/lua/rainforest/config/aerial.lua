@@ -2,9 +2,12 @@ local g = vim.g
 local utils = require("rainforest.utils")
 
 require("aerial").setup{
-	default_bindings = false,
-	default_direction = "prefer_right",
-	close_behavior = "auto", -- persist | close | auto | global
+	layout = {
+		default_direction = "prefer_right",
+
+	},
+	close_automatic_events = { "unsupported" },
+	keymaps = false,
 	manage_folds = true,
 	link_tree_to_folds = true, -- Only works when manage_folds is enabled
 	link_folds_to_tree = true, -- Only works when manage_folds is enabled

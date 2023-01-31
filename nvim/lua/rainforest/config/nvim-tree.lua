@@ -2,11 +2,6 @@ local g = vim.g
 local utils = require 'rainforest.utils'
 
 require 'nvim-tree'.setup {
-  -- closes neovim automatically when the tree is the last **WINDOW** in the view
-  auto_close = true,
-  view = {
-    auto_resize = true
-  },
   filters = {
     custom = {
       'node_modules', '__pycache__', '.cache'
