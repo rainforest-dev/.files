@@ -1,3 +1,5 @@
+[[ -f "$HOME/.profile" ]] && . "$HOME/.profile"
+
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && . "$HOME/.fig/shell/zprofile.pre.zsh"
 # setup arm64 version homebrew 

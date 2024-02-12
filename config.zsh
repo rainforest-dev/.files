@@ -1,3 +1,7 @@
+if [[ $TERM_PROGRAM == "vscode" ]]; then
+  source $HOME/.zprofile
+fi
+
 # https://electrictoolbox.com/bash-script-directory/
 DIR=$(dirname "$0")
 
