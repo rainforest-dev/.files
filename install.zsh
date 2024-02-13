@@ -11,9 +11,10 @@ for file in $(ls -A symlinks); do
   fi
 done
 
+cp .zshrc $HOME/.zshrc
+
 # check whether zimfw is available
-# if not, install zimfw
-if command -v zimfw > /dev/null; then
+if ! command -v zimfw &> /dev/null; then
   echo "Zimfw is not installed! Installing zimfw..."
   # check if .zim directory exists, if does, remove it
   if [ -d "$HOME/.zim" ]; then
