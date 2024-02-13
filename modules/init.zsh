@@ -7,3 +7,7 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# get path of parent directory
+parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+source $parent_path/zsh/functions/fpath.zsh
