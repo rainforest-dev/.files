@@ -1,29 +1,31 @@
+#!/bin/zsh
 source ./zsh/functions/fpath.zsh
-
 autoload -Uz backup
 
 # check whether zimfw is available
-if ! command -v zimfw &> /dev/null; then
+local zim_home=${ZIM_HOME:-$HOME/.zim}
+if [[ ! -e $zim_home/zimfw.zsh ]]; then
   echo "Zimfw is not installed! Installing zimfw..."
   # check if .zim directory or .zshrc file exists, if does, remove it
-  if [ -d "$HOME/.zim" ]; then
+  if [ -d "$zim_home/.zim" ]; then
     echo "Removing .zim directory..."
-    rm -rf $HOME/.zim
+    rm -rf $zim_home/.zim
   fi
   if [ -f "$HOME/.zshrc" ]; then
     echo "Removing .zshrc file..."
     rm $HOME/.zshrc
   fi
   curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-  source $HOME/.zshrc
 else
   echo "Zimfw is already installed!"
 fi
 
+source $HOME/.zshrc
+
 # link files under symlinks folder to home directory
 for file in $(ls -A symlinks); do
   if [ -f "$HOME/$file" ]; then
-    backup $file
+    backup $HOME/$file
   fi
   echo "Linking $file to $HOME..."
   ln -s $(pwd)/symlinks/$file $HOME/$file
