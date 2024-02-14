@@ -11,4 +11,7 @@ fi
 sudo chsh -s $(which zsh) $USER
 SHELL=$(which zsh)
 
-zsh install.zsh
+zsh install.zsh &
+sh ./nvim/install.sh &
+wait
+exec $SHELL
