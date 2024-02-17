@@ -11,6 +11,10 @@ fi
 sudo chsh -s $(which zsh) $USER
 SHELL=$(which zsh)
 
+if [ "$(uname)" = "Darwin" ]; then
+  ./mac.sh
+fi
+
 ./install.zsh &
 ./nvim/install.zsh &
 wait

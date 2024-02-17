@@ -17,6 +17,9 @@ if ! [ $(command -v nvim) ]; then
       sudo make install
       cd .. && sudo rm -rf neovim
     fi
+  # mac
+  elif [ "$(uname)" = "Darwin" ]; then
+    brew install neovim
   fi
 else
   echo "Neovim is already installed!"
