@@ -5,7 +5,7 @@ local installer = require("nvim-lsp-installer")
 local utils = require("rainforest.utils")
 
 local servers = {
-	"sumneko_lua",
+	"lua_ls",
 	"diagnosticls",
 	"bashls",
 	"gopls",
@@ -36,7 +36,7 @@ local function make_config()
 		},
 	}
 	-- cmp-nvim-lsp
-	capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 	return {
 		-- enable snippet support
 		capabilities = capabilities,

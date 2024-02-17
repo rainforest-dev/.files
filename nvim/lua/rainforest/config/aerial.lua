@@ -7,7 +7,6 @@ require("aerial").setup{
 
 	},
 	close_automatic_events = { "unsupported" },
-	keymaps = false,
 	manage_folds = true,
 	link_tree_to_folds = true, -- Only works when manage_folds is enabled
 	link_folds_to_tree = true, -- Only works when manage_folds is enabled

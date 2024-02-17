@@ -1,7 +1,7 @@
 [[ -f "$HOME/.profile" ]] && . "$HOME/.profile"
 
 # Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && . "$HOME/.fig/shell/zprofile.pre.zsh"
+[[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh"
 # setup arm64 version homebrew 
 ARCH=$(uname -m)
 if [[ $ARCH = "arm64" ]]; then
@@ -16,4 +16,6 @@ FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 eval "$(pyenv init --path)"
 
 # Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && . "$HOME/.fig/shell/zprofile.post.zsh"
+[[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"
+
+# eval "$(/usr/local/bin/brew shellenv)"

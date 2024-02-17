@@ -33,9 +33,7 @@ packer.startup({
 		use({
 			"xiyaowong/nvim-transparent",
 			config = function()
-				require("transparent").setup({
-					enable = true,
-				})
+				require("transparent").setup({})
 			end,
 		})
 		-- status bar
@@ -201,15 +199,15 @@ packer.startup({
 			end,
 		})
 
-		-- Neorg
-		use({
-			"nvim-neorg/neorg",
-			config = function()
-				require("rainforest.config.neorg")
-			end,
-			after = "nvim-treesitter",
-			requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
-		})
+		-- -- Neorg
+		-- use({
+		-- 	"nvim-neorg/neorg",
+		-- 	config = function()
+		-- 		require("rainforest.config.neorg")
+		-- 	end,
+		-- 	after = "nvim-treesitter",
+		-- 	requires = { "nvim-lua/plenary.nvim", "nvim-neorg/neorg-telescope" },
+		-- })
 
 		-- LSP and completion
 		use({
@@ -224,9 +222,6 @@ packer.startup({
 		})
 		use({
 			"hrsh7th/nvim-cmp",
-			config = function()
-				require("rainforest.config.completion")
-			end,
 			requires = {
 				{ "hrsh7th/cmp-buffer" },
 				{ "hrsh7th/cmp-path" },
@@ -238,6 +233,9 @@ packer.startup({
 				{ "onsails/lspkind-nvim" },
 				{ "rafamadriz/friendly-snippets" },
 			},
+			config = function()
+				require("rainforest.config.completion")
+			end,
 		})
 		use({
 			"jose-elias-alvarez/null-ls.nvim",
