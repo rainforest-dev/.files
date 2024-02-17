@@ -5,3 +5,5 @@ if ! [ $(command -v brew) ]; then
 else
   echo "Homebrew is already installed!"
 fi
+
+brew bundle
