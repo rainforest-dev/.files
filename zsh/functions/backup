@@ -1,0 +1,14 @@
+# check whether file or dir exists in home directory
+# if it does, backup the file and dir with BACKUP_EXTENSION(default: .bakup)
+backup() {
+  local file=$1
+  local backup_extension=${2:-bakup}
+  if [ -d "$file" ]; then
+    echo "Directory $file already exists in $HOME. Backup..."
+    mv $file $file.$backup_extension
+  fi
+  if [ -f "$file" ]; then
+    echo "File $file already exists in $HOME. Backup..."
+    mv $file $file.$backup_extension
+  fi
+}
