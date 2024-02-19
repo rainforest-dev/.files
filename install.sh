@@ -12,7 +12,7 @@ sudo chsh -s $(which zsh) $USER
 SHELL=$(which zsh)
 
 if [ "$(uname)" = "Darwin" ]; then
-  ./mac.sh
+  ./mac.zsh
 fi
 
 ./install.zsh &
