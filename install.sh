@@ -11,16 +11,13 @@ fi
 sudo chsh -s $(which zsh) $USER
 SHELL=$(which zsh)
 
-if [ "$(uname)" = "Linux" ] || [ "$(uname)" = "Darwin" ]; then
-	./brew.zsh
-fi
-
 if [ "$(uname)" = "Darwin" ]; then
 	./mac.zsh
 fi
+
+./lazygit.zsh
 
 ./install.zsh &
 ./nvim/install.zsh &
 wait
 exec $SHELL
-
