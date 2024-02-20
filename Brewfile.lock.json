@@ -9,6 +9,9 @@
       },
       "tabbyml/tabby": {
         "revision": "8da17fc6abc1ec19b489265cadcad113bcc6bd68"
+      },
+      "homebrew/cask-fonts": {
+        "revision": "16aa7909152e49d7016c8811d98cf70c83d46cb0"
       }
     },
     "brew": {
@@ -224,6 +227,24 @@
         "options": {
           "full_name": "visual-studio-code"
         }
+      },
+      "cleanshot": {
+        "version": "4.6.2",
+        "options": {
+          "full_name": "cleanshot"
+        }
+      },
+      "font-fira-code-nerd-font": {
+        "version": "3.1.1",
+        "options": {
+          "full_name": "font-fira-code-nerd-font"
+        }
+      },
+      "warp": {
+        "version": "0.2024.02.13.08.02.stable_00",
+        "options": {
+          "full_name": "warp"
+        }
       }
     },
     "vscode": {
@@ -245,7 +266,8 @@
       "ms-vscode.remote-server": null,
       "visualstudioexptteam.intellicode-api-usage-examples": null,
       "visualstudioexptteam.vscodeintellicode": null,
-      "withfig.fig": null
+      "withfig.fig": null,
+      "ms-vscode-remote.remote-wsl": null
     }
   },
   "system": {

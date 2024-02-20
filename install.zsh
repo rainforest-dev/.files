@@ -30,6 +30,8 @@ for file in $(ls -A symlinks); do
   echo "Linking $file to $HOME..."
   ln -s $(pwd)/symlinks/$file $HOME/$file
 done
+backup $ZIM_HOME/modules/custom
+ln -s $(pwd)/modules $ZIM_HOME/modules/custom
 
 zimfw install
 exec $SHELL
