@@ -1,5 +1,5 @@
 #!/bin/zsh
-source ./zsh/functions/fpath.zsh
+source $(pwd)/zsh/functions/fpath.zsh
 autoload -Uz backup
 
 # check whether zimfw is available
@@ -32,6 +32,7 @@ for file in $(ls -A symlinks); do
 done
 backup $ZIM_HOME/modules/custom
 ln -s $(pwd)/modules $ZIM_HOME/modules/custom
+ln -s $(pwd)/zsh $ZIM_HOME/modules/custom
 
 zimfw install
 exec $SHELL
