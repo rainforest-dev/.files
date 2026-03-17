@@ -18,4 +18,4 @@ fi
 zsh "$DIR/scripts/neovim.zsh"
 zsh "$DIR/scripts/lazygit.zsh"
 
-[ -t 1 ] && exec "$(which zsh)"
+if [ -t 1 ]; then exec "$(which zsh)"; fi
