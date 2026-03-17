@@ -1,4 +1,3 @@
-tap "homebrew/bundle"
 tap "homebrew/services"
 brew "neovim"
 brew "node"
