@@ -27,6 +27,6 @@ else
   echo "Neovim is already installed!"
 fi
 
+mkdir -p $HOME/.config
 backup $HOME/.config/nvim
-echo "$REPO"
-ln -s "$REPO/nvim" $HOME/.config/
+ln -s "$REPO/nvim" $HOME/.config/nvim
