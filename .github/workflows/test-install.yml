@@ -1,0 +1,45 @@
+name: Test Install Scripts
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ubuntu-x86:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:22.04
+      options: --user root
+    steps:
+      - name: Install prerequisites
+        run: apt-get update && apt-get install -y sudo curl git zsh bats
+
+      - uses: actions/checkout@v4
+
+      - name: Create test user and run install
+        run: |
+          useradd -m testuser
+          echo "testuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+          cp -r . /home/testuser/.files
+          chown -R testuser:testuser /home/testuser/.files
+          su testuser -c "cd /home/testuser/.files && bash install.sh"
+
+      - name: Run bats tests
+        run: su testuser -c "cd /home/testuser/.files && bats tests/bats/install.bats"
+
+  macos-arm64:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run install (CI Brewfile — formulae only, no GUI casks)
+        env:
+          BREWFILE: ${{ github.workspace }}/Brewfile.ci
+        run: bash install.sh
+
+      - name: Run bats tests
+        run: |
+          brew install bats-core
+          bats tests/bats/install.bats
