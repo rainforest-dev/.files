@@ -1,0 +1,6 @@
+tap "homebrew/bundle"
+tap "homebrew/services"
+brew "neovim"
+brew "node"
+# Add work-specific casks and tools below
+# cask "..."

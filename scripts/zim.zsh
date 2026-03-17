@@ -1,5 +1,6 @@
 #!/bin/zsh
-source $(pwd)/zsh/functions/fpath.zsh
+REPO="$(cd "${0:A:h}/.." && pwd)"
+source "$REPO/zsh/functions/fpath.zsh"
 autoload -Uz backup
 
 # check whether zimfw is available
@@ -23,16 +24,15 @@ fi
 source $HOME/.zshrc
 
 # link files under symlinks folder to home directory
-for file in $(ls -A symlinks); do
+for file in $(ls -A "$REPO/symlinks"); do
   if [ -f "$HOME/$file" ]; then
     backup $HOME/$file
   fi
   echo "Linking $file to $HOME..."
-  ln -s $(pwd)/symlinks/$file $HOME/$file
+  ln -s "$REPO/symlinks/$file" $HOME/$file
 done
 backup $ZIM_HOME/modules/custom
-ln -s $(pwd)/modules $ZIM_HOME/modules/custom
-ln -s $(pwd)/zsh $ZIM_HOME/modules/custom
+ln -s "$REPO/modules" $ZIM_HOME/modules/custom
+ln -s "$REPO/zsh" $ZIM_HOME/modules/custom
 
 zimfw install
-exec $SHELL
