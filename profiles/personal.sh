@@ -15,8 +15,7 @@ elif [ -f /usr/local/bin/brew ]; then
   eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-zsh "$DIR/scripts/neovim.zsh" &
-zsh "$DIR/scripts/lazygit.zsh" &
-wait
+zsh "$DIR/scripts/neovim.zsh"
+zsh "$DIR/scripts/lazygit.zsh"
 
 [ -t 1 ] && exec "$(which zsh)"
