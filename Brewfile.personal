@@ -1,35 +1,48 @@
 tap "homebrew/services"
+
+# Core dev tools
 brew "neovim"
 brew "node"
-cask "adguard"
-cask "appcleaner"
-cask "arc"
-cask "bartender"
-cask "cleanshot"
+brew "lazygit"
+brew "gh"
+brew "tree"
+
+# Personal AI / local inference
+brew "ollama"
+
+# Fonts & terminal
 cask "font-fira-code-nerd-font"
-cask "gpg-suite"
-cask "obsidian"
-cask "orbstack"
-cask "raycast"
-cask "rectangle-pro"
-cask "visual-studio-code"
 cask "warp"
-vscode "aaron-bond.better-comments"
-vscode "alefragnani.project-manager"
-vscode "eamodio.gitlens"
-vscode "enkia.tokyo-night"
-vscode "esbenp.prettier-vscode"
-vscode "formulahendry.auto-close-tag"
-vscode "formulahendry.auto-rename-tag"
-vscode "github.copilot"
-vscode "github.copilot-chat"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode-remote.remote-ssh"
-vscode "ms-vscode-remote.remote-ssh-edit"
-vscode "ms-vscode-remote.remote-wsl"
-vscode "ms-vscode-remote.vscode-remote-extensionpack"
-vscode "ms-vscode.remote-explorer"
-vscode "ms-vscode.remote-server"
-vscode "visualstudioexptteam.intellicode-api-usage-examples"
-vscode "visualstudioexptteam.vscodeintellicode"
+
+# Window & system utilities
+cask "rectangle-pro"
+cask "bartender"
+cask "appcleaner"
+cask "adguard"
+cask "cleanshot"
+
+# Security & privacy
+cask "gpg-suite"
+cask "tailscale-app"
+
+# Browsers & cloud storage
+cask "google-chrome"
+cask "google-drive"
+cask "synology-drive"
+
+# Personal knowledge & notes
+cask "obsidian"
+
+# E-books & media
+cask "calibre"
+cask "kobo"
+
+# Editor
+cask "visual-studio-code"
+
+# Peripherals
+cask "logi-options+"
+
+# Utilities
+cask "openmtp"
+cask "wifiman"
