@@ -1,5 +1,40 @@
 tap "homebrew/services"
+
+# Core dev tools
 brew "neovim"
 brew "node"
-# Add work-specific casks and tools below
-# cask "..."
+brew "lazygit"
+brew "gh"
+brew "tree"
+
+# Python dev
+brew "uv"
+
+# Access / auth
+brew "teleport"
+
+# Fonts & terminal
+cask "font-fira-code-nerd-font"
+cask "warp"
+
+# Window & system utilities
+cask "rectangle-pro"
+
+# Security & networking
+cask "gpg-suite"
+cask "tailscale-app"
+
+# Browsers
+cask "google-chrome"
+cask "microsoft-edge"
+
+# Containers & dev environment
+cask "docker-desktop"
+
+# Editor
+cask "visual-studio-code"
+
+# Collaboration
+cask "slack"
+cask "notion"
+cask "figma"
